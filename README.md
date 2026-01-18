@@ -1,6 +1,6 @@
 # Python
 
-Python is one of the most popular programming languages. It’s simple to use, packed with features and supported by a wide range of libraries and frameworks. Its clean syntax makes it beginner-friendly.
+Python is one of the most popular programming languages. It's simple to use, packed with features and supported by a wide range of libraries and frameworks. Its clean syntax makes it beginner-friendly.
 Python was created by <b>Guido van Rossum and first released in 1991</b>. It focuses on readability and uses simple, English-like syntax.
 Python is a Object Oriented Programming language.
 
@@ -15,6 +15,10 @@ Python is a Object Oriented Programming language.
 4. Large standard library and vast collection of third-party modules
 
 5. Platform-independent, works on Windows, Linux, and macOS
+
+6. Dynamic typing - no need to declare variable types
+
+7. Automatic memory management with garbage collection
 ```
 
 # Python Interpreter:
@@ -50,6 +54,8 @@ Python can be used as a simple calculator to perform mathematical operations lik
 3. Type any calculation just like:
    
  4+2 = 6
+ 10**2 = 100
+ 15/3 = 5.0
 
 4. For exit python type:
   
@@ -80,6 +86,7 @@ classes
 
 3.Wrong indentation causes an Indentation error
 
+4.Standard practice is to use 4 spaces per indentation level
 ```
 Example:
 
@@ -131,6 +138,18 @@ multiple lines of code
 """
 ```
 
+<b>Best Practices for Comments:</b>
+
+```bash
+1. Write comments that explain WHY, not WHAT (code shows what)
+
+2. Keep comments up-to-date when code changes
+
+3. Use comments for complex logic or non-obvious solutions
+
+4. Avoid over-commenting simple code
+```
+
 # Variable in Python:
 In Python, variables are used to store data values that can be reused and modified during program execution. A variable acts like a container that holds information. Python is a dynamically typed language, so you do not need to declare the data type of a variable explicitly. You simply assign a value using the " = " operator.
 <br>
@@ -148,6 +167,7 @@ In Python, variables are used to store data values that can be reused and modifi
 
 5. Python keywords (if, else, for) cannot be used as variable names.
 
+6. Use descriptive names (age, total_price) instead of single letters for better readability.
 ```
 Example:
 
@@ -164,6 +184,9 @@ _isActive = True
 # Multiple assignment
 
 a, b, c = 10, 20, 30
+
+# Assigning same value to multiple variables
+x = y = z = 100
 
 ```
 
@@ -443,6 +466,26 @@ unique_num = {1, 2, 3}  # Set
 print(Rank, colors, Class, unique_num)
 
 ```
+
+<b>5. Special Literal - None:</b>
+
+<br>
+None is a special literal in Python that represents the absence of a value or a null value.
+<br>
+It is often used to define a variable that doesn't have a value yet.
+<br>
+
+Example:
+
+```bash
+result = None
+print(result)  # Output: None
+
+# Checking if a variable is None
+if result is None:
+    print("No value assigned")
+```
+
 # Operator :
 In Python programming, Operators are used to perform operations on values and variables.
 <br>
@@ -513,6 +556,12 @@ Operator	    Example	   Same As
 *=	            x *= 2	   x = x * 2
 
 /=	            x /= 2     x = x / 2
+
+%=              x %= 2     x = x % 2
+
+//=             x //= 2    x = x // 2
+
+**=             x **= 2    x = x ** 2
 
 ```
 <b>3.Comparison / Relation operators</b> -> Comparison operators are used to compare two values and return a Boolean values.
@@ -629,6 +678,64 @@ not in	         Returns True if a sequence with the specified value
 
 ```
 
+# Data Types in Python:
+Data types define the type of value a variable can hold. Python has several built-in data types that are automatically determined based on the value assigned.
+<br>
+
+<b>Main Data Types:</b>
+
+```bash
+1. Numeric Types:
+   - int (integers): 10, -5, 0
+   - float (decimals): 3.14, -0.5
+   - complex: 2 + 3j
+
+2. Text Type:
+   - str (string): "Hello", 'Python'
+
+3. Sequence Types:
+   - list: [1, 2, 3]
+   - tuple: (1, 2, 3)
+   - range: range(5)
+
+4. Mapping Type:
+   - dict (dictionary): {"name": "Rakesh", "age": 21}
+
+5. Set Types:
+   - set: {1, 2, 3}
+   - frozenset: frozenset({1, 2, 3})
+
+6. Boolean Type:
+   - bool: True, False
+
+7. None Type:
+   - None
+```
+
+<b>Checking Data Type:</b>
+
+```bash
+x = 5
+print(type(x))  # Output: <class 'int'>
+
+y = "Hello"
+print(type(y))  # Output: <class 'str'>
+```
+
+<b>Type Conversion:</b>
+
+```bash
+# Converting between types
+x = "10"
+y = int(x)      # String to integer
+z = float(x)    # String to float
+
+a = 5
+b = str(a)      # Integer to string
+
+print(y, z, b)  # 10 10.0 5
+```
+
 # String in Python:
 Strings are a data type in python that is used to represent collections of characters.String is a sequence of character that are enclosed in Single-quotes(' '),Double-quotes(" "),Triple-quotes(''' '''/""" """).
 <br>
@@ -668,6 +775,22 @@ print(text[4])
 # Output-> o
 
  ```
+
+<b>Negative Indexing:</b>
+<br>
+Python also supports negative indexing, which starts from the end of the string.
+<br>
+
+```bash
+text = "Python"
+
+# Negative Index  -6 -5 -4 -3 -2 -1
+# Char             P  y  t  h  o  n
+
+print(text[-1])  # Output: n
+print(text[-3])  # Output: h
+```
+
 <b> String operators:</b>
 
 ```bash
@@ -739,6 +862,16 @@ find()	          Find substring
 
 len()	          Length of string
 
+count()           Count occurrences
+
+startswith()      Check if starts with
+
+endswith()        Check if ends with
+
+isdigit()         Check if all digits
+
+isalpha()         Check if all alphabets
+
 ```
 <br>
 Example:
@@ -760,6 +893,8 @@ print(msg.strip())  #strip()
 
 print(msg.find("python"))  #find()
 
+print(msg.count("o"))  #count()
+
 # Output->    HELLO WORLD FROM PYTHON
 #             hello world from python
 #            24
@@ -767,7 +902,23 @@ print(msg.find("python"))  #find()
 #             hello world from python
 #            hello world from python
 #            18
+#            3
 
+```
+
+<b>String Formatting:</b>
+
+```bash
+# Using f-strings (Python 3.6+)
+name = "Rakesh"
+age = 21
+print(f"My name is {name} and I am {age} years old")
+
+# Using format() method
+print("My name is {} and I am {} years old".format(name, age))
+
+# Using % operator
+print("My name is %s and I am %d years old" % (name, age))
 ```
 
 # Input and Output Statements:
@@ -811,6 +962,19 @@ print("Your age is", age)
 #float() → converts input to decimal number
 
 ```
+
+<b>Taking Multiple Inputs:</b>
+
+```bash
+# Multiple inputs in one line
+a, b = input("Enter two numbers: ").split()
+print(f"First: {a}, Second: {b}")
+
+# Multiple inputs with type conversion
+x, y = map(int, input("Enter two numbers: ").split())
+print(f"Sum: {x + y}")
+```
+
 <br>
 
 <b>Output Statements:</b>
@@ -829,6 +993,20 @@ print(value1, value2)
 
 print("Hello World")
 
+```
+
+<b>Print with Separators and End:</b>
+
+```bash
+# Using sep parameter
+print("Rakesh", "Kumar", "Singh", sep="-")  # Output: Rakesh-Kumar-Singh
+
+# Using end parameter
+print("Hello", end=" ")
+print("World")  # Output: Hello World (on same line)
+
+# Combining both
+print("Python", "is", "fun", sep=" | ", end="!\n")
 ```
 
 # List:
@@ -858,6 +1036,10 @@ number =[1,2,4,5,3,2,3,5,8]
 
 print(number[1])
 
+# Negative indexing
+print(number[-1])  # Last element: 8
+print(number[-2])  # Second last: 5
+
 ```
 <br>
 
@@ -869,6 +1051,12 @@ number =[1,2,4,5,3,2,3,5,8]
 print(number[1:6])  #[2, 4, 5, 3, 2]
 
 print(number[0:4])   #[1, 2, 4, 5]
+
+print(number[:3])    # From start to index 3: [1, 2, 4]
+
+print(number[5:])    # From index 5 to end: [2, 3, 5, 8]
+
+print(number[::2])   # Every 2nd element: [1, 4, 3, 3, 8]
 
 ```
 <b>Adding Elements to List</b>
@@ -895,6 +1083,19 @@ number.extend([123,22]) #extend()
 print(number)
 
 ```
+
+<b>Removing Elements from List:</b>
+
+```bash
+number = [1, 2, 4, 5, 3, 2, 3, 5, 8]
+
+number.remove(5)    # Removes first occurrence of 5
+number.pop()        # Removes last element
+number.pop(2)       # Removes element at index 2
+del number[1]       # Deletes element at index 1
+number.clear()      # Removes all elements
+```
+
 <b>LIST METHODS:</b>
 
 <br>
@@ -913,6 +1114,27 @@ l1 = [1,8,7,2,21,15]
 • l1.pop(2): Will delete element at index 2 and return its value.
 
 • l1.remove(21): Will remove 21 from the list. 
+
+• l1.index(7): Returns the index of first occurrence of 7
+
+• l1.count(8): Returns how many times 8 appears in the list
+
+• l1.copy(): Creates a shallow copy of the list
+```
+
+<b>List Comprehension:</b>
+<br>
+List comprehension provides a concise way to create lists.
+<br>
+
+```bash
+# Creating a list of squares
+squares = [x**2 for x in range(1, 6)]
+print(squares)  # [1, 4, 9, 16, 25]
+
+# Creating a list with condition
+even_numbers = [x for x in range(10) if x % 2 == 0]
+print(even_numbers)  # [0, 2, 4, 6, 8]
 ```
 
 # Tuple:
@@ -929,7 +1151,21 @@ t2 = ("Rakesh", "Nitish", "Shivam")
 
 t3 = (1, "Python", 3.5)
 
+# Single element tuple (note the comma)
+t4 = (5,)
+
 ```
+
+<b>Accessing Tuple Elements:</b>
+
+```bash
+t1 = (10, 20, 30, 40, 50)
+
+print(t1[0])     # First element: 10
+print(t1[-1])    # Last element: 50
+print(t1[1:4])   # Slicing: (20, 30, 40)
+```
+
 <b>Common Tuple Functions</b>
 
 ```bash
@@ -946,6 +1182,29 @@ t3 = (1, "Python", 3.5)
       count()	       Count value
 
       index()	       Find position
+
+      tuple()          Convert to tuple
+```
+
+<b>Tuple Unpacking:</b>
+
+```bash
+# Unpacking tuple values into variables
+person = ("Rakesh", 21, "BCA")
+name, age, course = person
+print(name, age, course)  # Rakesh 21 BCA
+```
+
+<b>Why Use Tuples:</b>
+
+```bash
+1. Faster than lists
+
+2. Protect data from accidental modification
+
+3. Can be used as dictionary keys
+
+4. Good for storing related constant values
 ```
 
 # Dictionary in Python:
@@ -1004,6 +1263,22 @@ print(students)
 ```
 <br>
 
+<b>Looping Through Dictionary:</b>
+
+```bash
+# Loop through keys
+for key in students:
+    print(key)
+
+# Loop through values
+for value in students.values():
+    print(value)
+
+# Loop through key-value pairs
+for key, value in students.items():
+    print(f"{key}: {value}")
+```
+
 <b>Removing Items:</b>
 
 ```bash
@@ -1041,6 +1316,18 @@ update()	 -> Updates the dictionary with the specified key-value pairs.
 
 values()  ->	Returns a list of all the values in the dictionary.
 
+```
+
+<b>Nested Dictionaries:</b>
+
+```bash
+# Dictionary containing dictionaries
+students = {
+    "student1": {"name": "Rakesh", "age": 21},
+    "student2": {"name": "Nitish", "age": 22}
+}
+
+print(students["student1"]["name"])  # Rakesh
 ```
 
 # Sets:
@@ -1081,7 +1368,7 @@ print(numbers)
 ```bash
 # how to create sets:
 mysets = {1,2,3,7,8,9,4,3,5,6,7,8}
-print(mysets)
+print(mysets)  # Duplicates automatically removed
 
 #How to create an empty sets:
 sts = set()
@@ -1095,6 +1382,11 @@ print(mysets)
 
 mysets.update([123,345,678,890])
 print(mysets)
+
+# Removing elements
+mysets.remove(5)      # Raises error if not found
+mysets.discard(100)   # No error if not found
+mysets.pop()          # Removes random element
 
 ```
 <br>
@@ -1129,6 +1421,9 @@ set2 ={1,2,3,4,5,6,7,8,9,10,11}
 
 print(set1 - set2)
 
+# Symmetric Difference -> Elements in either set but not in both
+print(set1 ^ set2)
+
 ```
 <br>
 
@@ -1152,7 +1447,13 @@ intersection()	        Common elements
 
 difference()	        Remaining elements
 
+symmetric_difference()  Elements in either but not both
+
 clear()	                Empty set
+
+issubset()              Check if subset
+
+issuperset()            Check if superset
  
 ```
 
@@ -1310,7 +1611,12 @@ if a > 5: print("Greater than 5")
 a = 3
 print("Even") if a % 2 == 0 else print("Odd")
 
+# Better way
+result = "Even" if a % 2 == 0 else "Odd"
+print(result)
+
 ```
+
 # Loops:
 Loops in Python are used to repeat a block of code multiple times until a condition is met or satisfied.
 <br>
@@ -1355,6 +1661,17 @@ while(i<=20):
     i = i+1
     
 ```
+
+<b>Infinite Loop Warning:</b>
+
+```bash
+# Be careful - this will run forever!
+# while True:
+#     print("This runs forever")
+
+# Use Ctrl+C to stop infinite loops
+```
+
 2. <b>For Loop :</b> This loop is used when the number of iterations is known. For loops is used to iterate over a sequence such as a list, tuple, string or range.
 <br>
 
@@ -1374,6 +1691,10 @@ fruits = ["apple","mango","banana","papaya","pineapple"]
 
 for fruit in fruits:
     print(fruit)
+
+# Looping with index using enumerate()
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
 ```
 
 # Range function in python:
@@ -1401,6 +1722,14 @@ range(start, stop, step)           # Meaning
 for num in range(1 ,10):
 
     print(num)   # prints 1 to 9
+
+# Range with step
+for num in range(0, 10, 2):
+    print(num)  # prints 0, 2, 4, 6, 8
+
+# Reverse range
+for num in range(10, 0, -1):
+    print(num)  # prints 10 to 1
 
 ```
 
@@ -1430,6 +1759,19 @@ print("done") # this is printed when the loop exhausts!
 
 ```
 
+<b>WHILE LOOP WITH ELSE:</b>
+
+```bash
+count = 0
+while count < 3:
+    print(count)
+    count += 1
+else:
+    print("While loop completed")
+
+# else block is skipped if loop is broken
+```
+
 # Break statements :
 The break statement is a loop control statement used to terminate (stop) a loop immediately, even if the loop condition is still true.
 <br>
@@ -1443,6 +1785,14 @@ for i in range(1,8):
     if i==5:
         break
     print(i)
+
+# break in while loop
+num = 0
+while num < 10:
+    if num == 5:
+        break
+    print(num)
+    num += 1
 
 ```
 
@@ -1462,6 +1812,13 @@ for i in range(1,8):
 
                output :
                it print 1 ,2 ,3 ,4 ,6 ,7
+
+# Practical use - skip negative numbers
+numbers = [1, -2, 3, -4, 5]
+for num in numbers:
+    if num < 0:
+        continue
+    print(num)  # Only prints positive numbers
                
 ```
 # Pass statement :
@@ -1477,6 +1834,12 @@ for i in range(5):
 
            # loop run but does nothing
 
+# Useful for creating empty function/class structures
+def future_function():
+    pass  # Will implement later
+
+class FutureClass:
+    pass  # Will add methods later
 
 ```
 
@@ -1556,6 +1919,23 @@ func1() # This is called function call
 ```
 <br>
 
+<b>Function with Parameters:</b>
+
+```bash
+# Function with single parameter
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Rakesh")
+
+# Function with multiple parameters
+def add_numbers(a, b):
+    return a + b
+
+result = add_numbers(5, 3)
+print(result)  # 8
+```
+
 <b>Defalut parameters value :</b>
 A default parameter value is a value given to a function parameter at the time of function definition.
 <br>
@@ -1576,6 +1956,58 @@ greet()
 
 
 ```
+
+<b>Return Statement:</b>
+
+```bash
+# Function that returns a value
+def square(num):
+    return num ** 2
+
+result = square(5)
+print(result)  # 25
+
+# Function returning multiple values
+def get_info():
+    name = "Rakesh"
+    age = 21
+    return name, age
+
+n, a = get_info()
+print(n, a)  # Rakesh 21
+```
+
+<b>Keyword Arguments:</b>
+
+```bash
+# Using keyword arguments
+def student_info(name, age, course):
+    print(f"{name} is {age} years old and studies {course}")
+
+# Order doesn't matter with keyword arguments
+student_info(age=21, name="Rakesh", course="BCA")
+```
+
+<b>*args and **kwargs:</b>
+
+```bash
+# *args - for variable number of arguments
+def sum_all(*numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+print(sum_all(1, 2, 3, 4, 5))  # 15
+
+# **kwargs - for variable number of keyword arguments
+def student_details(**details):
+    for key, value in details.items():
+        print(f"{key}: {value}")
+
+student_details(name="Rakesh", age=21, course="BCA")
+```
+
 # Recursion in Python:
 Recursion is a technique in which a function calls itself to solve a problem by breaking it into smaller subproblems.
 <br>
@@ -1663,7 +2095,7 @@ n = int(input("Enter a Number :"))
 
 for i in range(n):
 
- print(fibonacci(i) , end="")
+ print(fibonacci(i) , end=" ")
 
 ```
 <br>
@@ -1728,4 +2160,38 @@ Printed: 3
                             output :
                             0 1 1 2 3
 
+```
+
+<b>More Recursion Examples:</b>
+
+```bash
+# Sum of natural numbers
+def sum_natural(n):
+    if n == 1:
+        return 1
+    return n + sum_natural(n-1)
+
+print(sum_natural(5))  # 15 (1+2+3+4+5)
+
+# Power function
+def power(base, exp):
+    if exp == 0:
+        return 1
+    return base * power(base, exp-1)
+
+print(power(2, 3))  # 8 (2^3)
+```
+
+<b>Important Notes about Recursion:</b>
+
+```bash
+1. Always define a base case to avoid infinite recursion
+
+2. Recursion can be slower than loops due to function call overhead
+
+3. Too many recursive calls can cause stack overflow
+
+4. Some problems are naturally recursive (tree traversal, factorial)
+
+5. Use recursion when problem can be broken into smaller similar problems
 ```
