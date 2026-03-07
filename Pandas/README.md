@@ -114,3 +114,214 @@ They help us answer questions like:
 3. Are there missing values?
 4. What is the average, minimum, or maximum value?
 ```
+```bash
+import pandas as pd
+
+df = pd.read_json("DATA/sample_Data.json")
+
+# head() display first five rows as default
+# print(df.head())
+
+# # tail() display last five rows as default
+# print(df.tail())
+
+# You can pass integer as agruments to search or see data
+
+# head() display first ten rows as default
+# print(df.head(10))
+
+# tail() display last ten rows as default
+# print(df.tail(10))
+
+# info() displays dataset structure and data types.
+# print(df.info())
+
+# describe() Displays statistical summary of numerical columns.
+# print(df.describe())
+```
+<br>
+
+#  Handling Missing values in Pandas :
+<b>What are Missing Values?</b>
+<br>
+
+Missing values mean no data is present.
+<br>
+Common representations:
+
+```bash
+NaN
+
+None
+
+empty cells
+
+NULL (from databases)
+
+```
+<br>
+
+<b>Check entire DataFrame by using:</b>
+
+```bash
+
+df.isnull()
+```
+<br>
+
+isnull()  => If any Missing values in dataframe it shows True in place of missing values.
+<br>
+ If not any Missing values in dataframe it shows false in that place.
+<br>
+
+<b>Count missing values :</b>
+
+```bash
+df.isnull().sum()
+
+```
+<br>
+
+<b>Percentage of missing values :</b>
+
+```bash
+
+(df.isnull().sum() / len(df)) * 100
+
+```
+# Fill Missing Values (Imputation) :
+
+```bash
+
+# Fill with a fixed value
+
+df.fillna(0)
+
+
+# Fill column-wise
+
+df["Marks"].fillna(50, inplace=True)
+
+# Fill with Mean (Numeric Data)
+df["Marks"].fillna(df["Marks"].mean(), inplace=True)
+
+# Fill with Median (Better for Outliers)
+df["Marks"].fillna(df["Marks"].median(), inplace=True)
+
+# Fill with Mode (Categorical Data)
+df["Grade"].fillna(df["Grade"].mode()[0], inplace=True)
+
+```
+## Interpolate Method
+The interpolate() method in Pandas is used to fill missing values (NaN) by estimating values between existing data points.
+<br>
+It is commonly used in time series or numerical datasets where missing values can be approximated based on surrounding values.
+```bash
+import pandas as pd
+
+data = {
+    "Value": [10, None, None, 40, 50]
+}
+
+df = pd.DataFrame(data)
+
+df["Value"] = df["Value"].interpolate()
+
+print(df)
+
+# Output:
+
+   Value
+0   10.0
+1   20.0
+2   30.0
+3   40.0
+4   50.0
+```
+### Syntax:
+```bash
+DataFrame.interpolate(method='linear', axis=0)
+
+Important Parameters
+
+method – Technique used for interpolation (default is linear)
+
+axis – Direction of interpolation
+0 → column-wise
+1 → row-wise
+
+limit – Maximum number of consecutive NaN values to fill
+
+inplace – Modify original data if True
+```
+### Common Interpolation Methods
+```bash
+Method	                Description
+linear	   ->      Default method (straight line estimation)
+time	   ->      For time series data
+polynomial ->      Polynomial curve interpolation
+nearest	   ->      Uses nearest value
+spline	   ->      Smooth curve interpolation
+```
+# Sorting & Aggregation
+Sorting is the process of arranging data in a specific order (ascending or descending) based on one or more columns.
+<br>
+Aggregation is the process of calculating summary statistics from a dataset, such as total, average, minimum, and maximum values.
+<br><br>
+Examples: sum, mean, count, max, min
+<br>
+
+<b>Basic Aggregation on a Column :</b>
+
+```bash
+df["Marks"].sum()
+df["Marks"].mean()
+df["Marks"].max()
+df["Marks"].min()
+df["Marks"].count()
+```
+## Example:
+1. Sorting: Arranging data in a specific order using methods like sort_values().
+```bash
+import pandas as pd
+
+data = {
+    "Name": ["Rakesh", "Sourav", "Nitish", "Rohit"],
+    "Age": [21, 22, 20, 23]
+}
+
+df = pd.DataFrame(data)
+
+# Sorting by Age
+sorted_df = df.sort_values(by="Age")
+
+print(sorted_df)
+
+# Output:
+   Name    Age
+2  Nitish   20
+0  Rakesh   21
+1  Sourav   22
+3  Rohit    23
+```
+2. Aggregation: Calculating summary statistics from data using functions like sum(), mean(), max(), and min().
+```bash
+import pandas as pd
+
+data = {
+    "Salary": [50000, 45000, 52000, 49000]
+}
+
+df = pd.DataFrame(data)
+
+print("Total Salary:", df["Salary"].sum())
+print("Average Salary:", df["Salary"].mean())
+print("Maximum Salary:", df["Salary"].max())
+print("Minimum Salary:", df["Salary"].min())
+
+# Output:
+Total Salary: 196000
+Average Salary: 49000
+Maximum Salary: 52000
+Minimum Salary: 45000
+```
