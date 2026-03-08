@@ -325,3 +325,168 @@ Average Salary: 49000
 Maximum Salary: 52000
 Minimum Salary: 45000
 ```
+
+# groupby() in Pandas
+groupby() is used to divide the dataset into groups based on a column and then apply operations (like sum, mean, count, etc.) on each group.
+<br>
+It works similar to SQL GROUP BY.
+<br>
+First, data is grouped by a column, then we apply aggregation functions to calculate results for each group.
+<br> <br>
+## Syntax:
+```bash
+df.groupby("column_name").aggregation_function()
+```
+<b>Example:</b>
+```bash
+import pandas as pd
+
+data = {
+    "Name": ["Rakesh", "Sourav", "Nitish", "Rohit", "Aarti"],
+    "Department": ["IT", "HR", "IT", "HR", "IT"],
+    "Salary": [50000, 45000, 52000, 48000, 51000]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+df2 = df.groupby("Department")["Salary"].sum()
+print(df2)
+
+# Multiple aggregation 
+df3 = df.groupby("Department")["Salary"].agg(["sum", "mean", "max", "min"])
+print(df3)
+```
+
+# Merging And Joining in Pandas
+In Pandas, Merging and Joining are used to combine data from multiple DataFrames into one DataFrame.
+<br>
+1. Merging in Pandas:
+<br>
+Merging is the process of combining two DataFrames based on a common column or key.
+```bash
+# Syntax->
+pd.merge(df1, df2, on="column_name")
+
+# Parametres
+df1 → First DataFrame
+df2 → Second DataFrame
+on → Common column used to combine the data
+```
+<b>Example:</b>
+```bash
+import pandas as pd
+
+data1 = {
+    "ID": [1, 2, 3],
+    "Name": ["Rakesh", "Sourav", "Nitish"]
+}
+
+data2 = {
+    "ID": [1, 2, 3],
+    "Salary": [50000, 45000, 52000]
+}
+
+df1 = pd.DataFrame(data1)
+df2 = pd.DataFrame(data2)
+
+result = pd.merge(df1, df2, on="ID")
+
+print(result)
+```
+## Types of Merge:
+```bash
+Type	                    Description
+Inner Merge	    -> Inner merge returns only the rows that have matching values in both DataFrames.
+Left Merge	    -> Left merge returns all rows from the left DataFrame and matching rows from the right DataFrame.
+Right Merge 	-> Right merge returns all rows from the right DataFrame and matching rows from the left DataFrame.
+Outer Merge	    -> Outer merge returns all rows from both DataFrames.
+```
+<b>Example:</b>
+```bash
+import pandas as pd
+
+df1 = pd.DataFrame({
+    "ID": [1, 2, 3],
+    "Name": ["Rakesh", "Sourav", "Nitish"]
+})
+
+df2 = pd.DataFrame({
+    "ID": [2, 3, 4],
+    "Salary": [45000, 52000, 48000]
+})
+
+print("Inner Merge")
+print(pd.merge(df1, df2, on="ID", how="inner"))
+
+print("\nLeft Merge")
+print(pd.merge(df1, df2, on="ID", how="left"))
+
+print("\nRight Merge")
+print(pd.merge(df1, df2, on="ID", how="right"))
+
+print("\nOuter Merge")
+print(pd.merge(df1, df2, on="ID", how="outer"))
+```
+2. Joining in Pandas:
+<br>
+Joining is used to combine DataFrames based on their index instead of a column.
+<br>
+<b>Example:</b>
+```bash
+# Synatax -> df1.join(df2)
+
+import pandas as pd
+
+data1 = {
+    "Name": ["Rakesh", "Sourav", "Nitish"]
+}
+
+data2 = {
+    "Salary": [50000, 45000, 52000]
+}
+
+df1 = pd.DataFrame(data1)
+df2 = pd.DataFrame(data2)
+
+result = df1.join(df2)
+
+print(result)
+```
+
+# Concatenation in Pandas
+Concatenation is the process of joining multiple DataFrames together along rows or columns using the concat() function.
+<br>
+In Pandas, Concatenation is used to combine two or more DataFrames either vertically (row-wise) or horizontally (column-wise).
+<br>
+## Syntax:
+```bash
+pd.concat([df1, df2], axis=0)
+
+# Parameters
+df1, df2 → DataFrames to combine
+axis = 0 → Combine rows (default)
+axis = 1 → Combine columns
+```
+## Example:
+```bash
+import pandas as pd
+
+df1 = pd.DataFrame({
+    "Name": ["Rakesh", "Sourav"],
+    "Age": [21, 22]
+})
+
+df2 = pd.DataFrame({
+    "Name": ["Nitish", "Rohit"],
+    "Age": [23, 20]
+})
+
+# Row-wise concatenation
+print("Row Concatenation")
+print(pd.concat([df1, df2], axis=0))
+
+# Column-wise concatenation
+print("\nColumn Concatenation")
+print(pd.concat([df1, df2], axis=1))
+```
