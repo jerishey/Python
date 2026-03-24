@@ -326,3 +326,240 @@ data = sns.load_dataset("tips")
 sns.rugplot(data["total_bill"])
 plt.show()
 ```
+</i>
+<br>
+
+## 4. Regression Plots
+Regression plots are used to visualize the relationship between two variables and show how one variable depends on another. They also display a best-fit line (regression line) to predict trends in data.
+
+### Types of Regression Plots
+```bash
+1. Linear Regression Plot (regplot) : A regplot shows the relationship between two variables using a scatter plot along with a regression line.
+
+-Uses:
+To find correlation between variables
+To predict trends
+
+-Features:
+Shows scatter points + line
+Displays confidence interval
+Simple and clear
+
+2. Regression Plot with Categories (lmplot) : An lmplot is an advanced regression plot that separates data into categories and shows regression lines for each group.
+
+-Uses:
+To compare relationships across categories
+To analyze grouped data
+
+-Features:
+Supports grouping (hue)
+Multiple regression lines
+More flexible than regplot
+
+3. Residual Plot (residplot) : A residual plot shows the difference between actual values and predicted values (errors).
+
+-Uses:
+To check model accuracy
+To detect patterns in errors
+
+-Features:
+Shows residuals (errors)
+Helps validate regression model
+Detects non-linearity
+```
+### Example:
+<i>
+
+Linear Regression Plot (regplot)
+```bash
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("tips")
+
+sns.regplot(x="total_bill", y="tip", data=data)
+plt.show()
+```
+Regression Plot with Categories (lmplot)
+```bash
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("tips")
+
+sns.lmplot(x="total_bill", y="tip", hue="sex", data=data)
+plt.show()
+```
+Residual Plot (residplot)
+```bash
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("tips")
+
+sns.residplot(x="total_bill", y="tip", data=data)
+plt.show()
+```
+</i>
+<br>
+
+## 5. Matrix Plots
+Matrix plots are used to visualize relationships between multiple variables in a dataset in a matrix (grid) format. They help in understanding patterns, correlations, and distributions across many variables at once.
+
+### Types of Matrix Plots
+```bash
+1. Heatmap : A heatmap represents data in a matrix form using colors, where different colors indicate different values.
+
+-Uses:
+To visualize correlation between variables
+To identify patterns and relationships
+
+-Features:
+Uses color intensity
+Easy to spot high/low values
+Works well with correlation data
+
+2. Cluster Map (clustermap) : A clustermap is similar to a heatmap but also groups similar data using clustering techniques.
+
+-Uses:
+To find similar groups in data
+To analyze patterns with clustering
+
+-Features:
+Includes dendrograms (tree structure)
+Groups similar rows/columns
+Advanced visualization
+
+3. Pair Plot (pairplot) : A pair plot shows pairwise relationships between multiple variables using a grid of plots.
+
+-Uses:
+To analyze relationships between all variables
+To detect trends and correlations
+
+-Features:
+Multiple plots in grid form
+Shows scatter plots + histograms
+Good for exploratory data analysis
+```
+
+### Example:
+<i>
+
+Heatmap
+```bash
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("tips")
+
+corr = data.corr(numeric_only=True)
+
+sns.heatmap(corr, annot=True)
+plt.show()
+```
+Cluster Map (clustermap)
+```bash
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("tips")
+
+corr = data.corr(numeric_only=True)
+
+sns.clustermap(corr)
+plt.show()
+```
+Pair Plot (pairplot)
+```bash
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("tips")
+
+sns.pairplot(data)
+plt.show()
+```
+</i>
+<br>
+
+## 6. Multi-Plot Grid
+A multi-plot grid is used to display multiple plots in a structured grid format (rows and columns). It helps in comparing different subsets of data side by side.
+
+### Types of Multi-Plot Grids
+```bash
+1. Facet Grid (FacetGrid) : FacetGrid is used to create a grid of plots based on rows and columns of categorical variables.
+
+-Uses:
+To visualize data for different categories separately
+To compare patterns across subsets
+
+-Features:
+Supports row and column grouping
+Flexible plotting
+Works with multiple plot types
+
+2. Pair Grid (PairGrid) : PairGrid is used to create a grid of plots showing pairwise relationships between variables with custom control.
+
+-Uses:
+To explore relationships between multiple variables
+To customize pair plots
+
+-Features:
+More control than pairplot
+Supports different plots in grid
+Flexible and powerful
+
+3. Joint Grid (JointGrid) : JointGrid is used to display the relationship between two variables along with their individual distributions.
+
+-Uses:
+To analyze two variables together
+To see both joint and individual distributions
+
+-Features:
+Combines scatter + histogram/KDE
+Shows detailed relationship
+Compact visualization
+```
+
+### Example:
+<i>
+
+Facet Grid (FacetGrid)
+```bash
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("tips")
+
+g = sns.FacetGrid(data, col="time", row="sex")
+g.map(sns.scatterplot, "total_bill", "tip")
+
+plt.show()
+```
+
+Pair Grid (PairGrid)
+```bash
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("tips")
+
+g = sns.PairGrid(data)
+g.map_diag(sns.histplot)
+g.map_offdiag(sns.scatterplot)
+
+plt.show()
+```
+
+Joint Grid (JointGrid)
+```bash
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = sns.load_dataset("tips")
+
+g = sns.JointGrid(data=data, x="total_bill", y="tip")
+g.plot(sns.scatterplot, sns.histplot)
+
+plt.show()
+```
