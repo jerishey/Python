@@ -572,3 +572,168 @@ Output:
 {'name': 'Rahul', 'age': 20, 'course': 'Python'}
 <class 'dict'>
 ```
+
+## Conditional Statements in Python
+Conditional statements are used to control the flow of execution in a program based on specific conditions. They allow programs to execute different blocks of code depending on whether a condition evaluates to True or False.
+
+`1. If Statement :` If statement is used to execute a block of code only when a specified condition evaluates to True.
+
+```bash
+Syntax:
+if(Condition) {
+    // Code Block
+}
+
+Example:
+age = 20
+if age >= 18:
+    print("Eligible to vote.")
+
+Output:
+Eligible to vote.
+```
+
+`2. Short Hand if :` Short-hand if is used to write if statements in a single line. It is useful when only one statement needs to be executed.
+```bash
+Example:
+age = 19
+if age > 18: print("Eligible to Vote.")
+
+Output:
+Eligible to vote.
+```
+
+`3. If else Statement :` In Python, If-Else is a fundamental conditional statement used for decision-making in programming. If...Else statement allows to execution of specific blocks of code depending on the condition is True or False.
+<br>
+When the if condition is False. If the condition in the if statement is not true, the else block will be executed.
+```bash
+Syntax:
+if condition:
+    # code executes if condition is True
+else:
+    # code executes if condition is False
+
+Example:
+age = 25
+exp = 10
+
+# Using '>' operator & 'and' with if-else
+if age > 23 and exp > 8:
+    print("Eligible.")
+else:
+    print("Not eligible.")
+
+Output:
+Eligible.
+```
+
+`4. Nested If Else Statement :` Nested if...else statement occurs when if...else structure is placed inside another if or else block. Nested If..else allows the execution of specific code blocks based on a series of conditional checks.
+```bash
+Syntax:
+if condition1:
+    # code executes if condition1 is True
+
+    if condition2:
+        # code executes if condition2 is also True
+    else:
+        # code executes if condition2 is False
+
+else:
+    # code executes if condition1 is False
+
+Example:
+age = 20
+has_license = True
+
+if age >= 18:
+    if has_license:
+        print("You can drive")
+    else:
+        print("You need a license")
+else:
+    print("You are too young to drive")
+
+Output:
+You can drive
+```
+
+`5. if…elif…else Statement :` if-elif-else statement in Python is used for multi-way decision-making. This allows us to check multiple conditions sequentially and execute a specific block of code when a condition is True. If none of the conditions are true, the else block is executed.
+```bash
+Syntax:
+if condition1:
+    # code executes if condition1 is True
+
+elif condition2:
+    # code executes if condition2 is True
+
+else:
+    # code executes if all conditions are False
+
+Example:
+marks = 75
+
+if marks >= 90:
+    print("Grade A")
+
+elif marks >= 60:
+    print("Grade B")
+
+else:
+    print("Grade C")
+
+Output:
+Grade B
+```
+
+`6. Ternary Conditional Statement or Ternary Operator :` Ternary conditional statement is a short way to write an if-else statement in a single line. It is used when choosing between two values based on a condition.
+```bash
+Syntax:
+value_if_true if condition else value_if_false
+
+Example:
+age = 20
+s = "Adult" if age >= 18 else "Minor"
+print(s)
+
+Output:
+Adult
+```
+
+`7. Match-Case Statement :` Match-Case statement is used to compare a value against multiple patterns and execute the matching block of code. It is similar to the switch-case statement available in other programming languages.
+```bash
+Syntax:
+match variable:
+    case value1:
+        # code block
+
+    case value2:
+        # code block
+
+    case _:
+        # default block
+
+Explanation:
+1. match checks the value.
+2. case defines possible matches.
+3. _ works like a default case.
+4. Makes multiple condition checking cleaner and easier to read.
+
+Example:
+day = 2
+
+match day:
+    case 1:
+        print("Monday")
+
+    case 2:
+        print("Tuesday")
+
+    case 3:
+        print("Wednesday")
+
+    case _:
+        print("Invalid day")
+
+Output:
+Tuesday
+```
