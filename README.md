@@ -737,3 +737,282 @@ match day:
 Output:
 Tuesday
 ```
+
+## Loops in Python
+Loops are used to execute a block of code repeatedly until a condition is met or all items in a sequence are processed. The main types are For loops (iterating over sequences) and While loops (executing code based on a condition).
+
+### `1. For Loop :` 
+Python for loops are used to iterate over sequences such as lists, tuples, strings and ranges.
+
+- Allows the same operation to be applied to every item in a sequence.
+- Avoids the need to manage loop indices manually.
+```bash
+Syntax:
+for variable in sequence:
+    # code block
+
+Example: Loop through a list
+fruits = ["Apple", "Banana", "Mango"]
+
+for fruit in fruits:
+    print(fruit)
+```
+
+`range() Method :` The range() function in Python is used to generate a sequence of integers within a specified range. It is most commonly used in loops to control how many times a block of code runs.
+- range(stop) generates numbers from 0 to stop-1.
+- range(start, stop) generates numbers from start to stop-1.
+- range(start, stop, step) generates numbers from start to stop-1, incrementing by step.
+```bash
+Syntax:
+range(start, stop, step)
+
+Parameters:
+1. start (optional): Starting number of the sequence (default is 0)
+2. stop: Number at which the sequence stops (not included)
+3. step (optional): Difference between consecutive numbers (default is 1)
+
+Return: A range object representing the sequence
+
+Example:
+for n in range(5, 10):
+    print(n, end=" ")
+
+Output:
+5 6 7 8 9 
+
+Explanation:
+- range(5, 10) starts at 5 and stops before 10
+- Numbers increase by the default step of 1
+```
+
+### `2. While Loop :`
+While Loop is used to execute a block of statements repeatedly until a given condition is satisfied. When the condition becomes false, the line immediately after the loop in the program is executed.
+```bash
+while condition:
+    statement(s)
+
+Parameter:
+1. condition: This is a boolean expression. If it evaluates to True, the code inside the loop will execute.
+2. statement(s): These are the statements that will be executed during each iteration of the loop.
+
+Example:
+i = 1
+
+while i <= 5:
+    print(i)
+    i += 1
+
+Output:
+1
+2
+3
+4
+5
+```
+
+### `Control Statements :` 
+These statements are used to change the normal flow of loop execution in Python. They help control loop behavior by skipping iterations, stopping loops or acting as placeholders inside loops and conditional blocks.
+
+`1. Continue Statement :` The continue statement in Python is a loop control statement that skips the rest of the code inside the loop for the current iteration and moves to the next iteration immediately.
+```bash
+Example:
+for i in range(1, 11):
+    if i == 6:
+        continue
+    print(i, end=" ")
+
+Output:
+1 2 3 4 5 7 8 9 10 
+
+Explanation: When i == 6, the continue statement executes, skipping the print operation for 6.
+
+Example: 
+i = 0
+while i < 10:
+    if i == 5:
+        i += 1  # ensure the loop variable is incremented to avoid infinite loop
+        continue
+    print(i)
+    i += 1
+
+Explanation : When i == 5, the continue statement skips printing and jumps to the next iteration.
+```
+
+`2. break statement :` The break statement in Python is used to exit or "break" out of a loop (either for or while loop) prematurely, before the loop has iterated through all its items or reached its condition. 
+<br>
+When the break statement is executed, the program immediately exits the loop, and the control moves to the next line of code after the loop.
+```bash
+Example:
+a = [1, 3, 5, 7, 9, 11]
+val = 7
+
+for i in a:
+    if i == val:
+        print(f"Found at {i}!")
+        break
+else:
+    print(f"not found")
+
+Output:
+Found at 7!
+
+Explanation:
+- The loop iterates through each number in the list.
+- When the number 7 is found, it prints a confirmation message and executes break, exiting the loop immediately.
+- If the loop completes without finding the number, the else block is executed.
+
+Example: while Loop with break
+i = 1
+
+while i <= 5:
+    if i == 4:
+        break
+    print(i)
+    i += 1
+
+Explanation : The loop stops when i becomes 4.
+```
+
+`3. pass Statement :` The pass statement in Python is a placeholder that does nothing when executed.
+
+- It is used to keep code blocks valid where a statement is required but no logic is needed yet.
+- Examples situations where pass is used are empty functions, classes, loops or conditional blocks.
+```bash
+1. In Functions : The pass keyword in a function is used when we define a function but don't want to implement its logic immediately. It allows the function to be syntactically valid, even though it doesn't perform any actions yet.
+
+Example:
+def fun():
+    pass
+
+fun() # Call the function
+
+Explanation: fun() is defined but contains pass statement, so it does nothing when called and program continues execution without any errors.
+
+2. In Conditional Statements : In conditional statements, when no action is needed but a block is still required, pass statement acts as a placeholder to keep the code syntactically valid.
+
+Example:
+x = 10
+
+if x > 5:
+    pass  # Placeholder for future logic
+else:
+    print("x is 5 or less")
+
+Explanation:
+- When x > 5, the pass statement runs, so nothing happens.
+- If x <= 5, else block executes and prints the message.
+
+3. In Loops : In loops, pass can be used to skip writing any action during a specific iteration while still keeping the loop structure correct.
+
+Example:
+for i in range(5):
+    if i == 3:
+        pass  # Do nothing when i is 3
+    else:
+        print(i)
+
+Explanation:
+- For i == 3, the pass statement ensures nothing happens.
+- For other values, the loop prints the number.
+
+4. In Classes : The pass statement allows defining empty classes or methods that act as placeholders until actual functionality is added later.
+
+Example:
+class EmptyClass:
+    pass  # No methods or attributes yet
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def greet(self):
+        pass  # Placeholder for greet method
+
+# Creating an instance of the class
+p = Person("Emily", 30)
+
+Explanation:
+- EmptyClass is valid even without methods or attributes because of pass.
+- greet() method exists but does nothing yet, letting us build the structure first.
+```
+
+### `Advanced Loop Features :`
+`1. Else Statement :` else block with a loop executes only when the loop completes normally without a break statement.
+```bash
+Example:
+for i in range(1, 4):
+    print(i)
+else:  
+    print("No Break\n")
+
+Output:
+1
+2
+3
+No Break
+
+Explanation:
+- for i in range(1, 4): iterates from 1 to 3.
+- else: executes after loop completion.
+- "No Break" is printed because loop ends normally without break.
+```
+
+`2. Enumerate :` The enumerate() function in Python is used to iterate over an iterable while keeping track of both the index and the value. 
+<br>
+It returns pairs in the form (index, element). This removes the need to manually maintain a counter variable during iteration.
+```bash
+Syntax:
+enumerate(iterable, start=0) 
+
+Parameters:
+1. iterable: sequence or collection to iterate over.
+2. start (optional): starting value of the index. Default is 0.
+
+Example:
+a = ["A", "B", "C"]
+r = list(enumerate(a))
+print(r)
+
+Output:
+[(0, 'A'), (1, 'B'), (2, 'C')]
+
+Explanation: list(enumerate(a)) converts index-element pairs into a list of tuples.
+```
+
+`3. Nested Loops :` In Python, there are two types of loops: for loop and while loop. Using these loops, we can create nested loops, which means loops inside a loop. For example, a while loop inside a for loop, or a for loop inside another for loop.
+```bash
+Syntax:
+Outer_loop Expression:
+    Inner_loop Expression:
+        Statement inside inner_loop
+    Statement inside Outer_loop
+
+Example: Nested for Loop
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, j)
+
+Output:
+1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+3 1
+3 2
+3 3
+
+Example: Nested while Loop
+i = 1
+
+while i <= 3:
+    j = 1
+
+    while j <= 3:
+        print(i, j)
+        j += 1
+
+    i += 1
+```
