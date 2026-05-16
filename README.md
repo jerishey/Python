@@ -430,3 +430,145 @@ print(a, b, c)
 x, y, z = 1, 2.5, "Python"
 print(x, y, z)
 ```
+
+## Python Data Types
+Data types in Python are a way to classify data items. They represent the kind of value which determines what operations can be performed on that data. Since everything is an object in Python programming, Python data types are classes and variables are instances (objects) of these classes.
+
+<b>`1. Numeric Data Types :`</b> Python numbers represent data that has a numeric value. A numeric value can be an integer, a floating number or even a complex number. These values are defined as int, float and complex classes.
+
+```bash
+1. Integers: value is represented by int class. It contains positive or negative whole numbers (without fractions or decimals). There is no limit to how long an integer value can be.
+
+2. Float: value is represented by float class. It is a real number with a floating-point representation. It is specified by a decimal point. Optionally, character e or E followed by a positive or negative integer may be appended to specify scientific notation.
+
+3. Complex Numbers: It is represented by a complex class. It is specified as (real part) + (imaginary part)j. For example - 2+3j
+
+Example:
+a = 5
+print(type(a))
+
+b = 5.0
+print(type(b))
+
+c = 2 + 4j
+print(type(c))
+```
+
+<b>`2. Sequence Data Types :`</b> A sequence is an ordered collection of items, which can be of similar or different data types. Sequences allow storing of multiple values in an organized and efficient fashion. There are several sequence data types of Python:
+
+`1. String Data Type :` Python Strings are arrays of bytes representing Unicode characters. In Python, there is no character data type, a character is a string of length one. It is represented by str class.
+<br>
+Strings in Python can be created using single quotes, double quotes or even triple quotes. We can access individual characters of a String using index.
+```bash
+s = 'Hello World!'
+print(s)
+
+# check data type 
+print(type(s))
+
+# access string with index
+print(s[1])
+print(s[2])
+print(s[-1]) # -1 refers to the last character, -2 is second last, and so on
+```
+
+`2. List Data Type :` Lists are similar to arrays found in other languages. They are an ordered and mutable collection of items. It is very flexible as items in a list do not need to be of the same type.
+```bash
+- Creating a List in Python: Lists can be created by just placing sequence inside the square brackets[].
+
+Example:
+# Empty list
+a = []
+
+# list with int values
+a = [1, 2, 3]
+print(a)
+
+# list with mixed values int and String
+b = ["Nitish", "Shivam", "Rakesh", 4, 5]
+print(b)
+```
+
+`3. Tuple Data Type :` Tuple is an ordered collection of Python objects. The only difference between a tuple and a list is that tuples are immutable. Tuples cannot be modified after it is created.
+```bash
+# initiate empty tuple
+tup1 = ()
+
+tup2 = ('Nistish', 'Rakesh')
+print("\nTuple with the use of String: ", tup2)
+```
+
+<b>`3. Boolean Data Type :`</b> The Boolean data type in Python represents one of two values: True or False. It is used to store logical values and is denoted by the class bool.
+
+- Boolean values are commonly used in conditions, comparisons and decision-making statements.
+```bash
+print(type(True))
+print(type(False))
+print(type(true))
+
+Output:
+<class 'bool'>
+<class 'bool'>
+
+Hangup (SIGHUP)
+Traceback (most recent call last):
+  File "/home/guest/sandbox/Solution.py", line 3, in <module>
+    print(type(true))
+               ^^^^
+NameError: name 'true' is not defined. Did you mean: 'True'?
+```
+`Truthy and Falsy Values :` truthy and falsy values are values that evaluate to True or False in a Boolean context. Truthy values behave like True, while falsy values behave like False when used in conditions.
+
+```bash
+1. Truthy Values
+- Non-empty sequences or collections: [ 1 ], ( 0, ), "Hello", { 1:2 }
+- Numeric values not equal to zero: 1, -4, 3.5
+- Constant: True
+
+2. Falsy Values
+- Empty sequences and collections: [ ], ( ), { }, set( ), " ", range(0)
+- Numbers: 0 (integer), 0.0 (float), 0j (complex)
+- Constants: None, False
+
+Example:
+if 1:
+    print("1 is truthy")
+
+if not 0:
+    print("0 is falsy")
+
+Output:
+1 is truthy
+0 is falsy
+```
+
+<b>`4. Set Data Type :`</b> Set is an unordered collection of data types that is iterable, mutable, and has no duplicate elements. The order of elements in a set is undefined though it may consist of various elements.
+```bash
+numbers = {1, 2, 3, 4}
+
+print(numbers)
+print(type(numbers))
+
+Output:
+{1, 2, 3, 4}
+<class 'set'>
+```
+
+`5. Dictionary Data Type :` A dictionary in Python is a collection of data values used to store information in the form of key-value pairs. It works like a map where each key is associated with a specific value, allowing fast access and retrieval of data.
+- Each key is unique.
+- A colon (:) separates a key and its value.
+- Multiple key-value pairs are separated by commas.
+```bash
+student = {
+    "name": "Rahul",
+    "age": 20,
+    "course": "Python"
+}
+
+print(student)
+print(type(student))
+
+Output:
+{'name': 'Rahul', 'age': 20, 'course': 'Python'}
+<class 'dict'>
+```
