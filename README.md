@@ -1250,7 +1250,6 @@ In Python, operators have different precedence levels, which determine order in 
 ```
 
 <b>`Operator Precedence and Associativity List in Python`</b>
-# Precedence and Associativity of Operators in Python
 
 <i>
 
@@ -1722,3 +1721,202 @@ while i <= 3:
     i += 1
 ```
 
+## Python Functions 
+Python functions are reusable blocks of code used to perform a specific task. They help organize programs into smaller sections and execute the same logic whenever needed by calling the function.
+
+### `Why Use Functions`
+```bash
+1. Code Reusability : Write code once and use many times.
+2. Reduces code duplication : Avoid writing the same code again and again.
+3. Makes code easy to understand : Programs become more organized and readable.
+4. Easier debugging : Errors can be found and fixed easily.
+5. Improves program structure : Large programs can be divided into smaller parts.
+```
+
+### `1. Defining a Function`
+A function can be defined using def keyword. 
+<br>
+The def keyword in Python is used to define a function. Functions are logical blocks of code that can be reused multiple times.
+```bash
+Syntax:
+def function_name(parameters):
+    # Code to execute
+    return value  # Optional
+
+Explanation:
+1. def: Keyword to define a function
+2. function_name: Name of the function
+3. parameters: Optional input values (can be empty)
+4. return: Optional, sends a value back from the function
+5. The indented block is executed when the function is called
+```
+
+### `2. Calling a Function`
+After creating a function, call it by using the name of the functions followed by parenthesis containing parameters of that particular function.
+```bash
+Example:
+def func():
+    print("Hello")
+
+func()
+
+Explanation:
+- def func(): Defines a function named func.
+- print("Hello"): Code inside the function that runs when called.
+- func(): Calls the function, printing Hello to the output.
+```
+
+### `3. Function Arguments`
+Arguments are values passed to a function when it is called. They allow functions to receive input data and perform operations using those values.
+```bash
+Syntax:
+def function_name(arguments):
+    # function body
+    return value
+
+Explanation:
+1. def function_name(arguments): defines a function with optional arguments.
+2. # function body contains the statements to be executed.
+3. return value returns a result from the function. If no return statement is used, it returns None by default.
+
+Example:
+def evenOdd(x):
+    if (x % 2 == 0):
+        return "Even"
+    else:
+        return "Odd"
+
+print(evenOdd(16))
+print(evenOdd(7))
+```
+
+#### `Types of Function Arguments` 
+Python supports different types of arguments that can be passed during a function call.
+
+`1. Default argument :` In Python, functions can have default arguments, which are parameters with predefined values. This means you don’t always need to pass every argument while calling a function.
+- If you provide a value, Python uses it.
+- If you skip it, the default value is used automatically.
+
+```bash
+Syntax of Default Arguments
+def function_name(param1=value1, param2=value2, ...):
+    # function body
+
+Parameters:
+1. param1, param2, ...: Names of the parameters.
+2. value1, value2, ...: Default values assigned using =.
+3. function_name: The name of the function.
+
+Example:
+def greet(name="Guest"):
+    print("Hello,", name)
+
+greet()          
+greet("Nitish")
+
+Output:
+Hello, Guest
+Hello, Nitish
+```
+
+`Rules to Keep in Mind :`
+```bash
+1. Non-default parameters must come before default parameters in the function definition.
+2. Positional arguments must come before keyword arguments when calling a function.
+3. If using keyword arguments, order does not matter.
+4. Each parameter must have only one value.
+5. Keyword name must match exactly with the function definition.
+6. For positional (non-keyword) arguments, order matters strictly.
+```
+
+`2. Keyword Arguments :` pass values using parameter names, so argument order does not matter.
+```bash
+def student(fname, lname):
+    print(fname, lname)
+
+student(fname='Nitish', lname='Kumar')
+student(lname='Yadav', fname='Shivam')
+
+Output:
+Nitish Kumar
+Shivam Yadav
+
+Explanation: fname and lname are passed using parameter names and arguments can be provided in any order
+```
+
+`3. Positional Arguments :` values are assigned to parameters based on their order in the function call.
+```bash
+def nameAge(name, age):
+    print("Hi, I am", name)
+    print("My age is ", age)
+
+print("Case-1:")
+nameAge("Rakesh", 21)
+
+print("Case-2:")
+nameAge(21, "Rakesh")
+
+Output:
+Case-1:
+Hi, I am Rakesh
+My age is  21
+Case-2:
+Hi, I am 21
+My age is  Rakesh
+
+Explanation:
+- In Case-1, values match the correct parameters.
+- In Case-2, values are swapped because the order changed.
+```
+
+`4. Arbitrary Arguments :` Allow functions to accept multiple values. This is done using two special symbols:
+- *args collects extra positional arguments as a tuple.
+- **kwargs collects extra keyword arguments as a dictionary.
+
+<br>
+
+`1. Non-Keyword Arguments (*args) :` The special syntax *args allows us to pass any number of positional (non-keyword) arguments to a function. 
+<br>
+These arguments are collected into a tuple, which means we can loop through them or use them with built-in functions.
+<br>
+This is useful when you don’t know in advance how many values will be passed.
+```bash
+def multiply(*args):
+    result = 1
+    for num in args:
+        result *= num
+    return result
+
+print(multiply(2, 3, 4))
+
+Output:
+24
+
+Explanation:
+1. def multiply(*args): accepts multiple numbers as input.
+2. result = 1: initialize result to 1 (since we are multiplying).
+3. for num in args: loop through all arguments.
+4. result *= num: multiply each number with result.
+```
+
+`2. Keyword Arguments (**kwargs) :` The special syntax **kwargs allows us to pass any number of keyword arguments (arguments in the form key=value). These arguments are collected into a dictionary, where:
+- Keys = argument names
+- Values = argument values
+```bash
+def introduce(**kwargs):
+    details = []
+    for k, v in kwargs.items():
+        details.append(k + ": " + str(v))
+    return ", ".join(details)
+
+print(introduce(Name="Alice", Age=25, City="New York"))
+
+Output:
+Name: Alice, Age: 25, City: New York
+
+Explanation:
+1. def introduce(**kwargs): accepts flexible keyword arguments.
+2. for k, v in kwargs.items(): loop through each key-value pair.
+3. details.append(k + ": " + str(v)): format each pair as key: value and add to list.
+4. ", ".join(details): join list items into a single string separated by commas.
+```
