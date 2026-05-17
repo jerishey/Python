@@ -579,9 +579,10 @@ Python operators are fundamental for performing mathematical calculations. In Py
 
 ### `Types of Operators in Python`
 
-<b>`1. Arithmetic Operators :`</b> Arithmetic operators are symbols used to perform mathematical operations on numerical values. Arithmetic operators include addition (+), subtraction (-), multiplication (*), division (/), and modulus (%).
+#### <b>`Arithmetic Operators :`</b> 
+Arithmetic operators are symbols used to perform mathematical operations on numerical values. Arithmetic operators include addition (+), subtraction (-), multiplication (*), division (/), and modulus (%).
 
-`Addition Operator :` In Python, + is the addition operator. It is used to add 2 values.
+`1. Addition Operator :` In Python, + is the addition operator. It is used to add 2 values.
 ```bash
  val1 = 2
 val2 = 3
@@ -591,7 +592,7 @@ res = val1 + val2
 print(res)
 ```
 
-`Subtraction Operator :` In Python, - is the subtraction operator. It is used to subtract the second value from the first value.
+`2. Subtraction Operator :` In Python, - is the subtraction operator. It is used to subtract the second value from the first value.
 ```bash
 val1 = 2
 val2 = 3
@@ -601,7 +602,7 @@ res = val1 - val2
 print(res)
 ```
 
-`Multiplication Operator :` Python * operator is the multiplication operator. It is used to find the product of 2 values.
+`3. Multiplication Operator :` Python * operator is the multiplication operator. It is used to find the product of 2 values.
 ```bash
 val1 = 2
 val2 = 3
@@ -610,7 +611,7 @@ val2 = 3
 res = val1 * val2
 print(res)
 ```
-`Division Operator :` In Python programming language Division Operators allow us to divide two numbers and return a quotient, i.e., the first number or number at the left is divided by the second number or number at the right and returns the quotient. 
+`4. Division Operator :` In Python programming language Division Operators allow us to divide two numbers and return a quotient, i.e., the first number or number at the left is divided by the second number or number at the right and returns the quotient. 
 
 - There are two types of division operators: 
 ```bash
@@ -644,7 +645,7 @@ Output:
 -3.0
 ```
 
-`Modulus Operator :` The % in Python is the modulus operator. It is used to find the remainder when the first operand is divided by the second. 
+`5. Modulus Operator :` The % in Python is the modulus operator. It is used to find the remainder when the first operand is divided by the second. 
 ```bash
 val1 = 3
 val2 = 2
@@ -654,7 +655,7 @@ res = val1 % val2
 print(res)
 ```
 
-`Exponentiation Operator :` In Python, ** is the exponentiation operator. It is used to raise the first operand to the power of the second.
+`6. Exponentiation Operator :` In Python, ** is the exponentiation operator. It is used to raise the first operand to the power of the second.
 ```bash
 val1 = 2
 val2 = 3
@@ -669,13 +670,14 @@ print(res)
 | `**`                | Exponentiation Operator                               | Right-to-Left |
 | `%`, `*`, `/`, `//` | Modulus, Multiplication, Division, and Floor Division | Left-to-Right |
 | `+`, `-`            | Addition and Subtraction Operators                    | Left-to-Right |
+<br>
 
-<b>`2. Comparison Operators`</b>
+#### <b>`Comparison Operators`</b>
 Comparison operators (or Relational) in Python allow you to compare two values and return a Boolean result: either True or False. 
 <br>
 Python supports comparison across different data types, such as numbers, strings and booleans. For strings, the comparison is based on lexicographic (alphabetical) order.
 
-`Equality Operator (==) :` The equality operator checks if two values are exactly the same.
+`1. Equality Operator (==) :` The equality operator checks if two values are exactly the same.
 ```bash
 Example:
 a = 9
@@ -692,7 +694,7 @@ True
 Explanation: a == b is False because 9 is not equal to 5 and a == c is True because both values are 9.
 ```
 
-`Inequality Operator (!=) :` The inequality operator checks if two values are not equal.
+`2. Inequality Operator (!=) :` The inequality operator checks if two values are not equal.
 ```bash
 Example:
 a = 9
@@ -709,7 +711,7 @@ False
 Explanation: a != b is True because 9 and 5 are different and a != c is False because both are 9.
 ```
 
-`Greater Than Operator (>) :` Checks if the left operand is larger than the right.
+`3. Greater Than Operator (>) :` Checks if the left operand is larger than the right.
 ```bash
 Example: Comparing two numbers with the greater-than operator.
 a = 9
@@ -723,7 +725,7 @@ True
 False
 ```
 
-`Less Than Operator (<) :` Checks if the left operand is smaller than the right.
+`4. Less Than Operator (<) :` Checks if the left operand is smaller than the right.
 ```bash
 Example: Comparing two numbers with the less-than operator.
 a = 9
@@ -737,7 +739,7 @@ False
 True
 ```
 
-`Greater Than or Equal To Operator (>=) :` Checks if the left operand is greater than or equal to the right.
+`5. Greater Than or Equal To Operator (>=) :` Checks if the left operand is greater than or equal to the right.
 ```bash
 Example: Using >= to check greater than or equal conditions.
 a = 9
@@ -754,7 +756,7 @@ True
 False
 ```
 
-`Less Than or Equal To Operator (<=) :` Checks if the left operand is less than or equal to the right.
+`6. Less Than or Equal To Operator (<=) :` Checks if the left operand is less than or equal to the right.
 ```bash
 Example: Using <= to check less than or equal conditions.
 a = 9
@@ -771,7 +773,7 @@ True
 True
 ```
 
-`Chaining Comparison Operators :` Python allows you to chain multiple comparisons in a single statement. This makes conditions more compact and readable.
+`7. Chaining Comparison Operators :` Python allows you to chain multiple comparisons in a single statement. This makes conditions more compact and readable.
 ```bash
 Example: Using chained operators to evaluate multiple conditions together.
 a = 5
@@ -794,7 +796,8 @@ Explanation:
 - a < 10 < a*10 == 50: True because 5 < 10 and 5*10 = 50.
 ```
 
-`3. Logical Operators :` Python logical operators are used to combine or modify conditions and return a Boolean result (True or False). They are commonly used in conditional statements to control the flow of a program based on multiple logical conditions.
+#### `Logical Operators :` 
+Python logical operators are used to combine or modify conditions and return a Boolean result (True or False). They are commonly used in conditional statements to control the flow of a program based on multiple logical conditions.
 ```bash
 1. AND Operator : The Boolean AND operator returns True if both the operands are True else it returns False.
 
@@ -840,6 +843,440 @@ Explanation:
 - b or c returns True because at least one value is True.
 - not b reverses False to True, so the condition executes.
 ```
+
+#### <b>`Bitwise Operators :`</b> 
+Python bitwise operators are used to perform bitwise calculations on integers. The integers are first converted into binary and then operations are performed on each bit or corresponding pair of bits and the result is then returned in decimal format.
+
+```bash
+1. Bitwise AND Operator : Python Bitwise AND (&) operator takes two equal-length bit patterns as parameters. The two-bit integers are compared. If the bits in the compared positions of the bit patterns are 1, then the resulting bit is 1. If not, it is 0.
+
+2. Bitwise OR Operator : Python Bitwise OR (|) Operator takes two equivalent length bit designs as boundaries, if the two bits in the looked-at position are 0, the next bit is zero. If not, it is 1.
+
+3. Bitwise XOR Operator : Python Bitwise XOR (^) Operator also known as the exclusive OR operator, is used to perform the XOR operation on two operands, i.e., it compares corresponding bits of two operands and returns true if and only if exactly one of the operands is true.
+
+4. Bitwise NOT Operator : Python Bitwise Not (~) is a unary operator that returns one's complement of the operand. This means it toggles all bits in the value, transforming 0 bits to 1 and 1 bits to 0.
+```
+
+`Bitwise Shift :` These operators are used to shift the bits of a number left or right thereby multiplying or dividing the number by two respectively. They can be used when we have to multiply or divide a number by two.
+```bash
+1. Bitwise Right Shift : Shifts the bits of the number to the right and fills 0 on voids left(fills 1 in the case of a negative number) as a result. Similar effect as of dividing the number with some power of two.
+
+Example 1: Right shifting a positive integer
+
+a = 10 = 0000 1010 (Binary)
+a >> 1 = 0000 0101 = 5
+
+2. Bitwise Left Shift : Shifts the bits of the number to the left and fills 0 on voids right as a result. Similar effect as of multiplying the number with some power of two.
+
+Example 1: Left shifting a positive integer
+
+a = 5 = 0000 0101 (Binary)
+a << 1 = 0000 1010 = 10
+```
+
+#### <b>`Assignment Operators :`</b> 
+Assignment Operators are used to assign values to variables. This operator is used to assign the value of the right side of the expression to the left side operand.
+```bash
+# Assigning values using 
+# Assignment Operator 
+a = 3
+b = 5
+
+c = a + b 
+
+# Output 
+print(c)
+```
+
+`1. Addition Assignment Operator :` The Addition Assignment Operator is used to add the right-hand side operand with the left-hand side operand and then assigning the result to the left operand.
+```bash
+a = 3
+b = 5
+
+# a = a + b
+a += b
+
+# Output
+print(a)
+```
+
+`2. Subtraction Assignment Operator :` The Subtraction Assignment Operator is used to subtract the right-hand side operand from the left-hand side operand and then assigning the result to the left-hand side operand.
+```bash
+a = 3
+b = 5
+
+# a = a - b
+a -= b
+
+# Output
+print(a)
+```
+
+`3. Multiplication Assignment Operator :` The Multiplication Assignment Operator is used to multiply the right-hand side operand with the left-hand side operand and then assigning the result to the left-hand side operand.
+```bash
+a = 3
+b = 5
+
+# a = a * b
+a *= b
+
+# Output
+print(a)
+```
+
+`4. Division Assignment Operator :` The Division Assignment Operator is used to divide the left-hand side operand with the right-hand side operand and then assigning the result to the left operand.
+```bash
+Syntax: a /= b
+
+Example:
+a = 3
+b = 5
+
+# a = a / b
+a /= b
+
+# Output
+print(a)
+```
+
+`5. Modulus Assignment Operator :` The Modulus Assignment Operator is used to take the modulus, that is, it first divides the operands and then takes the remainder and assigns it to the left operand.
+```bash
+Syntax: a %= b
+
+Example:
+a = 3
+b = 5
+
+# a = a % b
+a %= b
+
+# Output
+print(a)
+```
+
+`6. Floor Division Assignment Operator :` The Floor Division Assignment Operator is used to divide the left operand with the right operand and then assigs the result(floor value) to the left operand.
+```bash
+Syntax: a //= b
+
+Example:
+a = 3
+b = 5
+
+# a = a // b
+a //= b
+
+# Output
+print(a)
+```
+
+`7. Exponentiation Assignment Operator :` The Exponentiation Assignment Operator is used to calculate the exponent(raise power) value using operands and then assigning the result to the left operand.
+```bash
+Syntax: a **= b
+
+Example:
+a = 3
+b = 5
+
+# a = a ** b
+a **= b
+
+# Output
+print(a)
+```
+
+`8. Bitwise AND Assignment Operator :` The Bitwise AND Assignment Operator is used to perform Bitwise AND operation on both operands and then assigning the result to the left operand.
+```bash
+Syntax: a &= b
+
+Example:
+a = 3
+b = 5
+
+# a = a & b
+a &= b
+
+# Output
+print(a)
+```
+
+`9. Bitwise OR Assignment Operator :` The Bitwise OR Assignment Operator is used to perform Bitwise OR operation on the operands and then assigning result to the left operand.
+```bash
+Syntax: a |= b
+
+Example:
+a = 3
+b = 5
+
+# a = a | b
+a |= b
+
+# Output
+print(a)
+```
+
+`10. Bitwise XOR Assignment Operator :` The Bitwise XOR Assignment Operator is used to perform Bitwise XOR operation on the operands and then assigning result to the left operand.
+```bash
+Syntax: a ^= b
+
+Example:
+a = 3
+b = 5
+
+# a = a ^ b
+a ^= b
+
+# Output
+print(a)
+```
+
+`11. Bitwise Right Shift Assignment Operator :` The Bitwise Right Shift Assignment Operator is used to perform Bitwise Right Shift Operation on the operands and then assign result to the left operand.
+```bash
+Syntax: a >>= b
+
+Example:
+a = 3
+b = 5
+
+# a = a >> b
+a >>= b
+
+# Output
+print(a)
+```
+
+`12. Bitwise Left Shift Assignment Operator :` The Bitwise Left Shift Assignment Operator is used to perform Bitwise Left Shift Opertator on the operands and then assign result to the left operand.
+```bash
+Syntax: a <<= b
+
+Example:
+a = 3
+b = 5
+
+# a = a << b
+a <<= b
+
+# Output
+print(a)
+```
+
+`13. Walrus Operator :` The Walrus Operator (:=), introduced in Python 3.8, allows you to assign a value to a variable as part of an expression. It helps avoid redundant code when a value needs to be both used and tested in the same expression — especially in loops or conditional statements.
+```bash
+Syntax: variable := expression
+- The expression on the right-hand side is evaluated, assigned to the variable, and then returned.
+
+Example:
+num = [1, 2, 3, 4, 5]
+
+while (n := len(num)) > 0:
+    print(num.pop())
+
+Output:
+5
+4
+3
+2
+1
+
+Explanation:
+- len(numbers) is assigned to n inside the loop condition.
+- The loop continues while n > 0, printing and removing elements until the list is empty.
+- This avoids calling len(numbers) repeatedly in separate statements.
+```
+
+#### <b>`Python Membership and Identity Operators`</b>
+In Python, Membership and Identity operators help us check relationships between values and objects. They are mainly used to test whether a value exists within a sequence or whether two variables refer to same object in memory.
+
+`1. Membership Operators :` The Membership operators test for the membership of an object in a sequence, such as strings, lists or tuples. Python offers two membership operators to check or validate the membership of a value.
+```bash
+1. IN Operator : The "in" operator returns True if the given element exists inside a sequence, otherwise it returns False.
+
+Example:
+l = [1, 2, 3, 4, 5]
+s = "Hello World"
+
+print(2 in l)
+print('O' in s)
+
+Output:
+True
+False
+
+Explanation:
+- 2 in l: True because 2 exists in the list.
+- 'O' in s: False because Python is case-sensitive ('O' ≠ 'o').
+
+2. NOT IN Operator : The "not in" operator works the opposite of "in" operator, it returns True if the element is not found in a sequence.
+
+Example:
+l = [1, 2, 3, 4, 5]
+s = "Hello World"
+
+print(2 not in l)
+print('O' not in s)
+
+Output:
+False
+True
+
+Explanation:
+- 2 not in l: False because 2 exists.
+- 'O' not in s: True because 'O' is missing.
+
+3. operator.contains() Method : Python also provides a function from the operator module called contains() that works like in.
+
+Syntax: operator.contains(sequence, value)
+
+Example:
+import operator
+
+print(operator.contains([1, 2, 3, 4, 5], 2))         # list
+print(operator.contains("Hello World", 'O'))         # string
+print(operator.contains({1, 2, 3, 4, 5}, 6))         # set
+print(operator.contains({1: "Ram", 2:"Son"}, 3))   # dictionary key
+print(operator.contains((1, 2, 3, 4, 5), 9))         # tuple
+
+Output:
+True
+False
+False
+False
+False
+
+Explanation: Works the same as in, but in function form (useful in functional programming).
+```
+
+`2. Identity Operators :` The Identity Operators are used to compare the objects if both objects are actually of same data type and share same memory location.
+```bash
+1. IS Operator : The "is" operator checks if two variables point to the same object (same memory location).
+
+Example:
+n1 = 5
+n2 = 5
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+s1 = "hello world"
+s2 = "hello world"
+
+print(n1 is n2)  # integers
+print(a is b)        # lists
+print(a is c)        # reference
+print(s1 is s2)      # strings
+
+Output:
+True
+False
+True
+True
+
+Explanation:
+- n1 is n2: True because small integers are cached by Python.
+- a is b: False because even though the lists look the same, they are stored at different memory locations.
+- a is c: True because c directly refers to a.
+- s1 is s2: True because Python reuses identical string objects.
+
+2. IS NOT Operator : The "is not" operator checks if two variables point to different objects.
+
+Example:
+n1 = 5
+n2 = 5
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+s1 = "hello world"
+s2 = "hello world"
+
+print(n1 is not n2)
+print(a is not b)
+print(a is not c)
+print(s1 is not s2)
+
+Output:
+False
+True
+False
+False
+
+Explanation:
+- a is not b: True because they are different objects.
+- a is not c: False because they point to the same object.
+```
+
+`Difference Between == and is :` The equality operator (==) is used to compare value of two variables, whereas identity operator (is) is used to compare memory location of two variables.
+```bash
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a is b)   # identity check
+print(a == b)   # value check
+
+Output:
+False
+True
+
+Explanation:
+- a == b: True because the contents are the same.
+- a is b: False because they are stored as separate list objects.
+```
+#### `Ternary Operator`
+Ternary operators also known as conditional expressions are operators that evaluate something based on a condition being true or false.
+- It simply allows testing a condition in a single line replacing the multiline if-else, making the code compact.
+```bash
+Syntax :  [on_true] if [expression] else [on_false] 
+
+Example:
+a = 10
+b = 20
+
+result = "a is greater" if a > b else "b is greater"
+
+print(result)
+
+Output:
+b is greater
+```
+
+## Precedence and Associativity of Operators in Python
+In Python, operators have different precedence levels, which determine order in which expressions are evaluated. If operators have same precedence, associativity decides whether they are evaluated left-to-right or right-to-left.
+
+```bash
+1. Operators Precedence : Operator precedence defines order in which Python evaluates different operators in an expression. When an expression has multiple operators, Python follows precedence rules to decide order of evaluation.
+
+2. Operators Associativity : If an expression contains two or more operators with same precedence then Operator Associativity is used. It can either be Left to Right or from Right to Left.
+```
+
+<b>`Operator Precedence and Associativity List in Python`</b>
+# Precedence and Associativity of Operators in Python
+
+<i>
+
+|      | Operator | Description | Associativity |
+|---|---|---|---|
+| 1 | `()` | Parentheses (highest precedence) | Left to right |
+| 2 | `x[index]`, `x[index:index]` | Subscription, slicing | Left to right |
+| 3 | `await x` | Await expression | — |
+| 4 | `**` | Exponentiation | Right to left |
+| 5 | `+x`, `-x`, `~x` | Unary plus, unary minus, bitwise NOT | Right to left |
+| 6 | `*`, `@`, `/`, `//`, `%` | Multiplication, matrix multiplication, division, floor division, remainder | Left to right |
+| 7 | `+`, `-` | Addition and subtraction | Left to right |
+| 8 | `<<`, `>>` | Bitwise shifts | Left to right |
+| 9 | `&` | Bitwise AND | Left to right |
+| 10 | `^` | Bitwise XOR | Left to right |
+| 11 | `\|` | Bitwise OR | Left to right |
+| 12 | `in`, `not in`, `is`, `is not`, `<`, `<=`, `>`, `>=`, `!=`, `==` | Comparisons, membership, identity tests | Left to right |
+| 13 | `not x` | Boolean NOT | Right to left |
+| 14 | `and` | Boolean AND | Left to right |
+| 15 | `or` | Boolean OR | Left to right |
+| 16 | `if-else` | Conditional expression | Right to left |
+| 17 | `lambda` | Lambda expression | — |
+| 18 | `:=` | Assignment expression (Walrus operator) | Right to left |
+
+</i>
+<br>
 
 ## Conditional Statements in Python
 Conditional statements are used to control the flow of execution in a program based on specific conditions. They allow programs to execute different blocks of code depending on whether a condition evaluates to True or False.
