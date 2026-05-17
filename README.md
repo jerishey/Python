@@ -572,6 +572,274 @@ Output:
 {'name': 'Rahul', 'age': 20, 'course': 'Python'}
 <class 'dict'>
 ```
+## Python Operators
+Python operators are fundamental for performing mathematical calculations. In Python programming, Operators in general are used to perform operations on values and variables.
+- Operators: Special symbols like -, + , * , /, etc.
+- Operands: Value on which the operator is applied.
+
+### `Types of Operators in Python`
+
+<b>`1. Arithmetic Operators :`</b> Arithmetic operators are symbols used to perform mathematical operations on numerical values. Arithmetic operators include addition (+), subtraction (-), multiplication (*), division (/), and modulus (%).
+
+`Addition Operator :` In Python, + is the addition operator. It is used to add 2 values.
+```bash
+ val1 = 2
+val2 = 3
+
+# using the addition operator
+res = val1 + val2
+print(res)
+```
+
+`Subtraction Operator :` In Python, - is the subtraction operator. It is used to subtract the second value from the first value.
+```bash
+val1 = 2
+val2 = 3
+
+# using the subtraction operator
+res = val1 - val2
+print(res)
+```
+
+`Multiplication Operator :` Python * operator is the multiplication operator. It is used to find the product of 2 values.
+```bash
+val1 = 2
+val2 = 3
+
+# using the multiplication operator
+res = val1 * val2
+print(res)
+```
+`Division Operator :` In Python programming language Division Operators allow us to divide two numbers and return a quotient, i.e., the first number or number at the left is divided by the second number or number at the right and returns the quotient. 
+
+- There are two types of division operators: 
+```bash
+1. Float division : The quotient returned by this operator is always a float number, no matter if two numbers are integers.
+
+Example:
+print(5/5)
+print(10/2)
+print(-10/2)
+print(20.0/2)
+
+Output:
+1.0
+5.0
+-5.0
+10.0
+
+2. Floor division : The quotient returned by this operator is dependent on the argument being passed. If any of the numbers is float, it returns output in float. 
+- It is also known as Floor division because, if any number is negative, then the output will be floored.
+
+Example:
+print(10//3)
+print (-5//2)
+print (5.0//2)
+print (-5.0//2)
+
+Output:
+3
+-3
+2.0
+-3.0
+```
+
+`Modulus Operator :` The % in Python is the modulus operator. It is used to find the remainder when the first operand is divided by the second. 
+```bash
+val1 = 3
+val2 = 2
+
+# using the modulus operator
+res = val1 % val2
+print(res)
+```
+
+`Exponentiation Operator :` In Python, ** is the exponentiation operator. It is used to raise the first operand to the power of the second.
+```bash
+val1 = 2
+val2 = 3
+
+# using the exponentiation operator
+res = val1 ** val2
+print(res)
+```
+<b>`Precedence of Arithmetic Operators in Python`</b>
+| Operators           | Description                                           | Associativity |
+| ------------------- | ----------------------------------------------------- | ------------- |
+| `**`                | Exponentiation Operator                               | Right-to-Left |
+| `%`, `*`, `/`, `//` | Modulus, Multiplication, Division, and Floor Division | Left-to-Right |
+| `+`, `-`            | Addition and Subtraction Operators                    | Left-to-Right |
+
+<b>`2. Comparison Operators`</b>
+Comparison operators (or Relational) in Python allow you to compare two values and return a Boolean result: either True or False. 
+<br>
+Python supports comparison across different data types, such as numbers, strings and booleans. For strings, the comparison is based on lexicographic (alphabetical) order.
+
+`Equality Operator (==) :` The equality operator checks if two values are exactly the same.
+```bash
+Example:
+a = 9
+b = 5
+c = 9
+
+print(a == b)
+print(a == c)
+
+Output:
+False
+True
+
+Explanation: a == b is False because 9 is not equal to 5 and a == c is True because both values are 9.
+```
+
+`Inequality Operator (!=) :` The inequality operator checks if two values are not equal.
+```bash
+Example:
+a = 9
+b = 5
+c = 9
+
+print(a != b)
+print(a != c)
+
+Output:
+True
+False
+
+Explanation: a != b is True because 9 and 5 are different and a != c is False because both are 9.
+```
+
+`Greater Than Operator (>) :` Checks if the left operand is larger than the right.
+```bash
+Example: Comparing two numbers with the greater-than operator.
+a = 9
+b = 5
+​
+print(a > b)
+print(b > a)
+
+Output:
+True
+False
+```
+
+`Less Than Operator (<) :` Checks if the left operand is smaller than the right.
+```bash
+Example: Comparing two numbers with the less-than operator.
+a = 9
+b = 5
+
+print(a < b)
+print(b < a)
+
+Output:
+False
+True
+```
+
+`Greater Than or Equal To Operator (>=) :` Checks if the left operand is greater than or equal to the right.
+```bash
+Example: Using >= to check greater than or equal conditions.
+a = 9
+b = 5
+c = 9
+
+print(a >= b)
+print(a >= c)
+print(b >= a)
+
+Output:
+True
+True
+False
+```
+
+`Less Than or Equal To Operator (<=) :` Checks if the left operand is less than or equal to the right.
+```bash
+Example: Using <= to check less than or equal conditions.
+a = 9
+b = 5
+c = 9
+
+print(a <= b)
+print(a <= c)
+print(b <= a)
+
+Output:
+False
+True
+True
+```
+
+`Chaining Comparison Operators :` Python allows you to chain multiple comparisons in a single statement. This makes conditions more compact and readable.
+```bash
+Example: Using chained operators to evaluate multiple conditions together.
+a = 5
+
+print(1 < a < 10)
+print(10 > a <= 9)
+print(5 != a > 4)
+print(a < 10 < a*10 == 50)
+
+Output:
+True
+True
+False
+True
+
+Explanation:
+- 1 < a < 10: True because 5 is between 1 and 10.
+- 10 > a <= 9: True because 5 < 10 and 5 <= 9.
+- 5 != a > 4: False because a equals 5.
+- a < 10 < a*10 == 50: True because 5 < 10 and 5*10 = 50.
+```
+
+`3. Logical Operators :` Python logical operators are used to combine or modify conditions and return a Boolean result (True or False). They are commonly used in conditional statements to control the flow of a program based on multiple logical conditions.
+```bash
+1. AND Operator : The Boolean AND operator returns True if both the operands are True else it returns False.
+
+2. OR Operator : The Boolean OR operator returns True if either of the operands is True.
+
+3. NOT Operator : The Boolean NOT operator works with a single boolean value. If the boolean value is True it returns False and vice-versa.
+```
+<br>
+
+<b>`Truth Table for Logical Operators`</b>
+| A     | B     | A and B | A or B | not A |
+| ----- | ----- | ------- | ------ | ----- |
+| True  | True  | True    | True   | False |
+| True  | False | False   | True   | False |
+| False | True  | False   | True   | True  |
+| False | False | False   | False  | True  |
+
+<br>
+
+<b>`Example:`</b>
+```bash
+a, b, c = True, False, True
+
+# AND: Both conditions must be True
+if a and c:
+    print("Both a and c are True (AND condition).")
+
+# OR: At least one condition must be True
+if b or c:
+    print("Either b or c is True (OR condition).")
+
+# NOT: Reverses the condition
+if not b:
+    print("b is False (NOT condition).")
+
+Output:
+- Both a and c are True (AND condition).
+- Either b or c is True (OR condition).
+- b is False (NOT condition).
+
+Explanation:
+- a and c returns True because both values are True.
+- b or c returns True because at least one value is True.
+- not b reverses False to True, so the condition executes.
+```
 
 ## Conditional Statements in Python
 Conditional statements are used to control the flow of execution in a program based on specific conditions. They allow programs to execute different blocks of code depending on whether a condition evaluates to True or False.
@@ -1016,3 +1284,4 @@ while i <= 3:
 
     i += 1
 ```
+
