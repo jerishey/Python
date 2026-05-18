@@ -173,6 +173,40 @@ Keywords in Python are special reserved words that are part of the language itse
 | Scope and Namespace   | `global`, `nonlocal`                                                                                             |
 | Async Programming     | `async`, `await`                                                                                                 |
 
+## Input and Output in Python
+The print() function is used for output in various formats and the input() function enables interaction with users.
+
+`Taking Input using input() :` In Python, most programs need to collect information from users, such as their name, age or a number. This is done using the input() function, which:
+
+- Pauses the program and waits for the user to type something.
+- Returns the entered value as a string (str).
+- Optionally displays a prompt message to guide the user.
+
+```bash
+val = input("Enter your value: ")
+print(val)
+
+Output:
+Enter your value: 123
+123
+```
+
+`How the input() Function Works`
+```bash
+- The program pauses until the user provides some input.
+- You can optionally provide a prompt message (e.g., "Enter your age:").
+- Whether you type letters, numbers, or symbols, Python always stores it as a string by default.
+- If you need another data type (like integer or float), you must convert it manually using typecasting.
+```
+
+`Printing Output using print() :` The print() function allows us to display text, variables and expressions on the console.
+```bash
+Example:
+print("Hello, World!")
+
+Output:
+Hello, World!
+```
 
 ## Python Literals
 Literals in Python are fixed values written directly in the code that represent constant data. They provide a way to store numbers, text, or other essential information that does not change during program execution. Python supports different types of literals, such as numeric literals, string literals, Boolean literals, and special values like None. 
