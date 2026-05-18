@@ -1954,3 +1954,605 @@ Explanation:
 3. details.append(k + ": " + str(v)): format each pair as key: value and add to list.
 4. ", ".join(details): join list items into a single string separated by commas.
 ```
+
+## Python String
+Strings are sequence of characters written inside quotes. It can include letters, numbers, symbols and spaces. Python does not have a separate character type.
+- A single character is treated as a string of length one.
+- Strings are commonly used for text handling and manipulation.
+
+### How to Create a String
+
+`1. Creating a String :` Strings can be created using either single ('...') or double ("...") quotes. Both behave the same.
+```bash
+s1 = 'Nitish'  
+s2 = "Rakesh"  
+print(s1)
+print(s2)
+
+Output:
+Nitish
+Rakesh
+```
+
+`2. Multi-line Strings :` Use triple quotes ('''...''' ) or ( """...""") for strings that span multiple lines. Newlines are preserved.
+```bash
+s = """I am Learning
+Python String."""
+print(s)
+
+s = '''I'm a 
+BCA Student.'''
+print(s)
+
+Output:
+I am Learning
+Python String.
+I'm a 
+BCA Student.
+```
+
+### `Accessing characters in String :` 
+Strings are indexed sequences. Positive indices start at 0 from the left, negative indices start at -1 from the right.
+```bash
+s = "Nitish"
+print(s[0])   
+print(s[4])
+
+Output:
+N
+s
+
+- Accessing an index out of range will cause an IndexError. Only integers are allowed as indices and using a float or other types will result in a TypeError.
+```
+
+### `String Slicing :` 
+String slicing in Python is a way to get specific parts of a string by using start, end and step values. It’s especially useful for text manipulation and data parsing.
+```bash
+Syntax:
+        substring = s[start : end : step]
+
+Parameters:
+1. s: The original string.
+2. start (optional): Starting index (inclusive). Defaults to 0 if omitted.
+3. end (optional): Stopping index (exclusive). Defaults to the end of the string if omitted.
+4. step (optional): Interval between indices. A positive value slices from left to right, while a negative value slices from right to left. If omitted, it defaults to 1 (no skipping of characters).
+```
+
+`Negative Indexing in Slicing :` Negative indexing is useful for accessing elements from the end of the String. The last element has an index of -1, the second last element -2 and so on.
+```bash
+s = "abcdefghijklmno"
+
+print(s[-4:])
+
+print(s[:-3])
+
+print(s[-5:-2])
+
+print(s[-8:-1:2])
+
+Output:
+lmno
+abcdefghijkl
+klm
+hjln
+
+Explanation:
+1. s[-4:] slices the string starting from the 4th character from the end ('m') to the end of the string.
+2. s[:-3] slices the string from the beginning up to the 3rd character from the end ('k'), excluding it.
+3. s[-5:-2] slices the string from the 5th character from the end ('l') to the 2nd character from the end ('n'), excluding the last character.
+4. s[-8:-1:2] slices the string from the 8th character from the end ('g') to the 2nd character from the end ('n'), with a step of 2, taking every second character.
+```
+
+`Reverse a String Using Slicing :` To reverse a string, use a negative step value of -1, which moves from the end of the string to the beginning.
+```bash
+s = "Python"
+
+# Reverse the string
+print(s[::-1])
+
+Output:
+nohtyP
+
+Explanation: The slice s[::-1] starts from the end and steps backward through the string, which effectively reversing it. This method does not alter the original string.
+```
+
+### `String Iteration :` 
+Strings are iterable, one can loop through characters one by one.
+```bash
+s = "Python"
+for char in s:
+    print(char)
+
+Output:
+P
+y
+t
+h
+o
+n
+
+Explanation: for loop pulls characters in order and each iteration prints the next character.
+```
+### `String Immutability :` 
+Strings are immutable, which means that they cannot be changed after they are created. If we need to manipulate strings then we can use methods like concatenation, slicing or formatting to create new strings based on original.
+```bash
+Example : Trying to Change a Character
+
+text = "Python"
+text[0] = "J"
+
+Output:
+TypeError: 'str' object does not support item assignment
+
+Explanation : Strings do not allow direct modification using indexes.
+
+Example : Creating a New String
+
+text = "Python"
+new_text = "J" + text[1:]
+print(new_text)
+
+Output:
+Jython
+
+Explanation : Instead of changing the original string, a new string is created.
+```
+
+### `Deleting a String :` 
+It's not possible to delete individual characters from a string since strings are immutable. However, we can delete an entire string variable using the del keyword.
+```bash
+text = "Python Programming"
+del text
+
+print(text)
+
+Output:
+NameError: name 'text' is not defined
+
+Explanation : After deleting the variable, it no longer exists in memory.
+```
+### `Updating a String :` 
+As strings are immutable, “updates” create new strings using slicing or methods such as replace().
+```bash
+text = "Hello World"
+new_text = text.replace("World", "Python")
+print(new_text)
+
+Output:
+Hello Python
+```
+### `Common String Methods :` 
+Python provides various built-in methods to manipulate strings.
+
+`1. len() :` returns the total number of characters in a string (including spaces and punctuation).
+```bash
+s = "Python"
+print(len(s))
+
+Output:
+6
+```
+
+`2. upper() and lower() :` upper() method converts all characters to uppercase whereas, lower() method converts all characters to lowercase.
+```bash
+s = "Hello World"
+print(s.upper())
+print(s.lower())
+
+Output:
+HELLO WORLD
+hello world
+```
+
+`3. strip() and replace() :` strip() removes leading and trailing whitespace from the string and replace() replaces all occurrences of a specified substring with another.
+```bash
+s = "   BCA   "
+print(s.strip())    
+
+s = "Python is fun"
+print(s.replace("fun", "awesome"))
+
+Output:
+BCA
+Python is awesome
+```
+
+### `Concatenating and Repeating Strings :` 
+We can concatenate strings using + operator and repeat them using * operator.
+
+`1. Strings can be combined by using + operator.`
+```bash
+s1 = "Hello"
+s2 = "World"
+print(s1 + " " + s2)
+
+Output:
+Hello World
+```
+
+`2. We can repeat a string multiple times using * operator.`
+```bash
+s = "Hello "
+print(s * 3)
+
+Output:
+Hello Hello Hello 
+```
+
+### `Formatting Strings`
+
+`1. Using f-strings :` f-strings (formatted string literals) were introduced in Python 3.6 to make string formatting easier and more readable. They allow variables and expressions to be directly embedded inside strings using curly braces {}.
+```bash
+Syntax: f"{variable/expression}"
+
+- An f-string is created by adding f before the string and placing variables or expressions inside {}.
+
+Example:
+name = "Emily"
+age = 20
+print(f"My name is {name} and I am {age} years old")
+
+Output:
+My name is Emily and I am 20 years old
+```
+
+`2. Using format() :`
+format() method in Python is a tool used to create formatted strings. By embedding variables or values into placeholders within a template string, we can construct dynamic, well-organized output. It replaces the outdated % formatting method, making string interpolation more readable and efficient. 
+```bash
+Syntax: string.format(value1, value2, ...)
+
+Parameter: values (such as integers, strings, or variables) to be inserted into the placeholders in the string.
+
+Returns: a string with the provided values embedded in the placeholders.
+
+Example:
+a = "shakshi" # name 
+b = 22 # age
+
+msg = "My name is {0} and I am {1} years old.".format(a,b)
+print(msg)
+
+Output:
+My name is shakshi and I am 22 years old.
+
+Explanation: format(a, b) method replaces {0} with the first argument (a = "shakshi") and {1} with the second argument (b = 22).
+```
+
+## Python Lists
+List is a built-in data structure used to store an ordered collection of items. They are dynamic, resizable and capable of storing multiple data types.
+- Mutable: list elements can be changed, updated, added, or removed after the list is created.
+- Ordered: elements maintain the order in which they are inserted.
+- Index-based: elements are accessed using their position, starting from index 0.
+
+### `Creating a List :` 
+Lists can be created in several ways, such as using square brackets [] , the list() constructor or by repeating elements.
+
+`1. Using Square Brackets :` Square brackets [] are used to create a list directly.
+```bash
+a = [1, 2, 3]
+print(a)
+
+b = ["apple", "banana"]
+print(b)
+
+Output:
+[1, 2, 3]
+['apple', 'banana']
+```
+
+`2. Using list() Constructor :` A list can also be created by passing an iterable (such as tuple, string or another list) to the list() constructor.
+```bash
+a = list((1, 2, 3, 'apple', 4.5))  
+print(a)
+
+b = list("RAM")
+print(b)
+
+Output:
+[1, 2, 3, 'apple', 4.5]
+['R', 'A', 'M']
+```
+
+`3. Creating List with Repeated Elements :` A list with repeated elements can be created using the multiplication (*) operator.
+```bash
+a = [2] * 5
+b = [0] * 7
+
+print(a)
+print(b)
+
+Output:
+[2, 2, 2, 2, 2]
+[0, 0, 0, 0, 0, 0, 0]
+```
+
+`Internal Representation of Lists`
+
+Python list stores references to objects, not the actual values directly.
+
+- The list keeps memory addresses of objects like integers, strings or booleans.
+- Actual objects exist separately in memory.
+- Modifying a mutable object inside a list changes the original object.
+- Reassigning an immutable object creates a new object instead of changing the old one.
+```bash
+a = [1, 2, 2, "Python"]
+print(a[0])   # index-based
+print(a)
+
+Output:
+1
+[1, 10, 2, 'Python']
+
+Explanation:
+- The list a contains an integer (10, 20 and 40), a string ("GfG") and a boolean (True).
+- Elements are accessed using indexing (a[0], a[1], etc.).
+- Each element keeps its original type.
+```
+
+### `Accessing List Elements :` 
+Elements in a list are accessed using indexing. Python uses zero-based indexing, meaning a[0] represents the first element. Negative indexing is also supported, where -1 accesses the last element.
+```bash
+a = [10, 20, 30]
+print(a[0])
+print(a[-1])
+
+Output:
+10
+30
+```
+
+### `Adding Elements into List :` 
+Elements can be added to a list using the following methods:
+
+`1. append() :` Adds an element at the end of the list.
+```bash
+Syntax: list_name.append(element)
+
+a = [1, 2]
+a.append(3)
+print(a)
+
+Output:
+[1, 2, 3]
+```
+
+`2. insert() :` Adds an element at a specific position.
+```bash
+Syntax: list_name.insert(index, element)
+
+a = [1, 3]
+a.insert(1, 2)
+print(a)
+
+Output:
+[1, 2, 3]
+```
+
+`3. extend() :` Adds multiple elements to the end of the list.
+```bash
+Syntax: list_name.extend(iterable)
+
+numbers = [1, 2, 3]
+numbers.extend([4, 5, 6])
+print(numbers)
+
+Output:
+[1, 2, 3, 4, 5, 6]
+```
+
+### `Updating Elements into List `
+
+`1. Updating a Single Element :` You can update an element using its index number.
+```bash
+Syntax: list_name[index] = new_value
+
+numbers = [10, 20, 30, 40]
+numbers[1] = 25
+print(numbers)
+
+Output:
+[10, 25, 30, 40]
+```
+
+`2. Updating Multiple Elements :` You can update multiple elements using slicing.
+```bash
+Syntax: list_name[start:end] = [new_values]
+
+numbers = [1, 2, 3, 4, 5]
+numbers[1:4] = [20, 30, 40]
+print(numbers)
+
+Output:
+[1, 20, 30, 40, 5]
+```
+
+`3. Updating All Elements Using Loop :` You can update all elements using a loop.
+```bash
+numbers = [1, 2, 3, 4]
+
+for i in range(len(numbers)):
+    numbers[i] = numbers[i] * 2
+
+print(numbers)
+
+Output:
+[2, 4, 6, 8]
+```
+
+`4. Updating Nested List Elements :` Lists inside another list are called nested lists.
+```bash
+matrix = [[1, 2], [3, 4]]
+
+matrix[0][1] = 10
+
+print(matrix)
+
+Output:
+[[1, 10], [3, 4]]
+```
+
+### `Removing Elements from List`
+
+`1. remove() :` Removes the first occurrence of an element.
+```bash
+Syntax: list_name.remove(element)
+
+a = [1, 2, 3]
+a.remove(2)
+print(a)
+
+Output:
+[1, 3]
+```
+
+`2. pop() Method :` Removes an element using its index or the last element if no index is specified and returns the removed element.
+```bash
+Syntax: list_name.pop(index)
+
+a = [1, 2, 3]
+a.pop()
+print(a)
+
+Output:
+[1, 2]
+```
+
+`3. del Statement :` Deletes an element at a specified index or entire list.
+```bash
+Syntax: del list_name[index]
+
+a = [1, 2, 3]
+del a[1]
+print(a)
+
+Output:
+[1, 3]
+```
+
+`4. clear() :` Removes all elements from the list.
+```bash
+Syntax: list_name.clear()
+
+a = [1, 2, 3]
+a.clear()
+print(a)
+
+Output:
+[]
+```
+
+### `Nested Lists :` 
+A nested list is a list that contains another list as its element. It is commonly used to represent matrices or tabular data. Nested elements can be accessed by chaining multiple indexes.
+```bash
+a = [[1, 2], [3, 4]]
+print(a[0])
+print(a[1][0])
+
+Output:
+[1, 2]
+3
+```
+### Iterate over a list
+Python provides several ways to iterate over list. The simplest and the most common way to iterate over a list is to use a for loop. This method allows us to access each element in the list directly.
+
+`1. Using for Loop and in :` We can access all elements using for loop and in keyword to traverse all elements.
+```bash
+a = [1, 3, 5, 7, 9]
+
+# On each iteration val
+# represents the current item/element
+for val in a:
+    print(val)
+
+Output:
+1
+3
+5
+7
+9
+```
+`2. Using while Loop :` A while loop is used to repeat a block of code as long as a condition is True. 
+- We can use it to access list elements one by one using an index.
+```bash
+Syntax:
+index = 0
+
+while index < len(list_name):
+    # code
+    index += 1
+
+Example:
+a = [1, 3, 5, 7, 9]
+ 
+# Start from the first index
+i = 0
+ 
+# The loop runs till the last index (i.e., 4)
+while i < len(a):
+    print(a[i])
+    i += 1
+
+Output:
+1
+3
+5
+7
+9
+```
+`3. Using enumerate() :` We can also use the enumerate() function to iterate through the list. This method provides both the index (i) and the value (val) of each element during the loop.
+```bash
+a = [1, 3, 5, 7, 9]
+
+# Here, i and val reprsents index and value respectively
+for i, val in enumerate(a):
+    print (i, val)
+
+Output:
+0 1
+1 3
+2 5
+3 7
+4 9
+```
+`4. Using for Loop with range() :` We can use the range() method with for loop to traverse the list. This method allow us to access elements by their index, which is useful if we need to know the position of an element or modify the list in place.
+```bash
+a = [1, 3, 5, 7, 9]
+ 
+# Calculate the length of the list
+n = len(a)
+ 
+# Iterates over the indices from 0 to n-1 (i.e., 0 to 4)
+for i in range(n):
+    print(a[i])
+
+Output:
+1
+3
+5
+7
+9
+```
+
+### List Comprehension
+List comprehension is a concise way to create new lists by applying an expression to each item in an existing iterable like a list, tuple or range. It helps to write clean, readable and efficient code compared to traditional loops.
+```bash
+Syntax:
+[expression for item in iterable if condition]
+
+Parameters:
+1. expression: operation or value to include in the new list.
+2. item: current element from the iterable.
+3. iterable: sequence like a list, tuple or range.
+4. if condition (optional): filter to include only items that satisfy the condition.
+```
+<b>`Example`</b>
+```bash
+a = [2, 3, 4, 5]
+res = [val ** 2 for val in a]
+print(res)
+
+Output:
+[4, 9, 16, 25]
+
+Explanation: res = [val ** 2 for val in a] use list comprehension to create a new list by squaring each number in a.
+```
