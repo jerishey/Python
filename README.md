@@ -2556,3 +2556,194 @@ Output:
 
 Explanation: res = [val ** 2 for val in a] use list comprehension to create a new list by squaring each number in a.
 ```
+
+## Python Tuples
+A tuple is an immutable ordered collection of elements.
+
+- Tuples are similar to lists, but unlike lists, they cannot be changed after their creation.
+- Can hold elements of different data types.
+- These are ordered, heterogeneous and immutable.
+
+### `Creating a Tuple`
+A tuple is created by placing all the items inside parentheses (), separated by commas. A tuple can have any number of items.
+```bash
+tup = ()
+print(tup)
+
+# Using String
+tup = ('Nitish', 'Rakesh')
+print(tup)
+
+# Using List
+li = [1, 2, 4, 5, 6]
+print(tuple(li))
+
+# Using Built-in Function
+tup = tuple('Shivam')
+print(tup)
+
+Output:
+()
+('Nitish', 'Rakesh')
+(1, 2, 4, 5, 6)
+('S', 'h', 'i', 'v', 'a', 'm')
+```
+
+`Creating a Tuple with Mixed Datatypes :` Tuples can store elements of different data types, such as integers, strings, lists and dictionaries, within a single structure.
+```bash
+tup = (5, 'Welcome', 7.5, True, [1, 2, 3], {'key': 'value'})
+print(tup)
+
+Output:
+(5, 'Welcome', 7.5, True, [1, 2, 3], {'key': 'value'})
+```
+### Tuple Basic Operations
+
+`1. Accessing of Tuples :` We can access the elements of a tuple by using indexing and slicing, similar to how we access elements in a list. 
+<br>
+Indexing starts at 0 for the first element and goes up to n-1, where n is the number of elements in the tuple. Negative indexing starts from -1 for the last element and goes backward.
+```bash
+tup = tuple("Rakesh")
+print(tup[0])
+print(tup[1:4])  
+print(tup[:3])
+
+# Tuple unpacking
+tup = ("Pytan", "For", "AI")
+
+# This line unpack values of Tuple1
+a, b, c = tup
+print(a)
+print(b)
+print(c)
+
+Output:
+R
+('a', 'k', 'e')
+('R', 'a', 'k')
+Python
+For
+AI
+```
+
+`2. Concatenation of Tuples :` Tuples can be concatenated using the + operator. This operation combines two or more tuples to create a new tuple.
+<br>
+Only tuples can be concatenated with tuples. Combining a tuple with other types like lists will raise an error. Tuples themselves can contain mixed datatypes.
+```bash
+tup1 = (0, 1, 2, 3)
+tup2 = ('Python', 'For', 'ML')
+tup3 = tup1 + tup2
+print(tup3)
+
+Output:
+(0, 1, 2, 3, 'Python', 'For', 'ML')
+```
+
+`3. Slicing of Tuple :` Tuple slicing is a technique to extract a sub-part of a tuple. It uses a range of indices to create a new tuple from the original tuple.
+```bash
+Syntax: tuple[start:stop:step]
+
+Parameter:
+1. start: The starting index from where the slice begins (inclusive). Default is 0.
+2. stop: The ending index where the slice ends (exclusive).
+3. step: The step size or stride. Default is 1
+```
+<b>`Example:` </b>
+```bash
+# Define a tuple
+tup = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Slice from index 2 to 5
+s1 = tup[2:6]
+print(s1)  
+
+# Slice from the beginning to index 3
+s2 = tup[:4]
+print(s2)  
+
+# Slice from index 5 to the end
+s3 = tup[5:]
+print(s3)  
+
+# Slice the entire tuple
+s4 = tup[:]
+print(s4)
+
+Output:
+(2, 3, 4, 5)
+(0, 1, 2, 3)
+(5, 6, 7, 8, 9)
+(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+```
+
+`Using Negative Indices :` Negative indices can be used to slice tuples from the end.
+```bash
+# Define a tuple
+tup = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Slice from the third last to the end
+s1 = tup[-3:]
+print(s1)  
+
+# Slice from the beginning to the third last
+s2 = tup[:-3]
+print(s2)  
+
+# Slice from the third last to the second last
+s3 = tup[-3:-1]
+print(s3)
+
+Output:
+(7, 8, 9)
+(0, 1, 2, 3, 4, 5, 6)
+(7, 8)
+```
+
+`Using Step in Slicing :` The step parameter allows us to define the increment between indices for the slice.
+```bash
+# Define a tuple
+tup = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Slice with a step of 2
+s1 = tup[1:8:2]
+print(s1)  
+
+# Slice with a negative step (reverse the tuple)
+s2 = tup[::-1]
+print(s2)
+
+Output:
+(1, 3, 5, 7)
+(9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+```
+
+`4. Deleting a Tuple :` Since tuples are immutable, we cannot delete individual elements of a tuple. However, we can delete an entire tuple using del statement.
+<br>
+Printing of Tuple after deletion results in an Error. 
+```bash
+tup = (0, 1, 2, 3, 4)
+del tup
+print(tup)
+
+Output:
+ERROR!
+Traceback (most recent call last):
+  File "<main.py>", line 6, in <module>
+NameError: name 'tup' is not defined
+```
+
+`5. Tuple Unpacking with Asterisk (*) :` *operator is used in tuple unpacking to grab multiple items into a list. This is useful to extract just a few specific elements and collect the rest together.
+```bash
+tup = (1, 2, 3, 4, 5)
+a, *b, c = tup
+print(a) 
+print(b) 
+print(c)
+
+Output:
+1
+[2, 3, 4]
+5
+
+Explanation: a gets the first item, c gets the last item and *b collects everything in between into a list.
+```
