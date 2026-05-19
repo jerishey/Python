@@ -3949,3 +3949,198 @@ Explanation:
 3. In set_age(), if the age is outside the valid range (0–120), the exception is raised.
 4. The try-except block catches the exception and prints the error message.
 ```
+
+## File Handling in Python
+File handling refers to the process of performing operations on a file, such as creating, opening, reading, writing and closing it through a programming interface. It involves managing the data flow between the program and the file system on the storage device, ensuring that data is handled safely and efficiently.
+
+<b>`Need for File Handling`</b>
+```bash
+1. Store data permanently, even after the program ends.
+2. Access external files like .txt, .csv, .json, etc.
+3. Process large files efficiently without using much memory.
+4. Automate tasks like reading configs or saving outputs.
+```
+
+`Opening a File :` To open a file, we can use open() function, which requires file-path and mode as arguments.
+```bash
+Syntax: file = open('filename.txt', 'mode')
+
+1. filename.txt: name (or path) of the file to be opened.
+2. mode: mode in which you want to open the file (read, write, append, etc.).
+
+- If you don’t specify the mode, Python uses 'r' (read mode) by default.
+```
+
+<b>`Example:`</b>
+```bash
+f = open("myfile.txt", "r")
+print(f)
+
+Explanation: code opens file myfile.txt in read mode. If the file exists, it returns a file object connected to that file; if the file does not exist, Python raises a FileNotFoundError.
+```
+
+`Closing a File :` file.close() method closes the file and releases the system resources. If the file was opened in write or append mode, closing ensures that all changes are properly saved.
+```bash
+file = open("myfile.txt", "r")
+# Perform file operations
+file.close()
+```
+
+`Checking File Properties :` Once the file is open, we can check some of its properties:
+```bash
+f = open("myfile.txt", "r")
+print("Filename:", f.name)
+print("Mode:", f.mode)
+print("Is Closed?", f.closed)
+
+f.close()
+print("Is Closed?", f.closed)
+
+Output:
+Filename: myfile.txt
+Mode: r
+Is Closed? False
+Is Closed? True
+
+Explanation:
+1. f.name: Returns the name of the file that was opened (in this case, "myfile.txt").
+2. f.mode: Tells us the mode in which the file was opened. Here, it’s 'r' which means read mode.
+3. f.closed: Returns a boolean value- False when file is currently open otherwise True.
+```
+
+`Reading a File :` Reading a file can be achieved by file.read() which reads the entire content of the file. After reading, it’s good practice to close the file to free up system resources.
+```bash
+file = open("myfile.txt", "r")
+content = file.read()
+print(content)
+file.close()
+
+Output:
+Hello world
+Python for AI/ML
+123 456
+```
+
+`Writing a File :` Writing to a file is done using the mode "w". This creates a new file if it doesn’t exist, or overwrites the existing file if it does. The write() method is used to add content. After writing, make sure to close the file.
+```bash
+with open("myfile.txt", "w") as file:
+    file.write("Hello, Python!\n")
+    file.write("File handling is easy with Python.")
+
+print("File written successfully")
+
+Output:
+Hello, Python!
+File handling is easy with Python.
+
+Explanation:
+1. "w" mode opens the file for writing (overwrites existing content if the file already exists).
+2. write() method adds new text to the file.
+3. When using with, the file closes automatically at the end of the block.
+```
+
+`Using with Statement :` Instead of manually opening and closing the file, you can use the with statement, which automatically handles closing. This reduces the risk of file corruption and resource leakage.
+```bash
+with open("myfile.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+Output:
+Hello, World!
+```
+
+`Handling Exceptions When Closing a File :` It's important to handle exceptions to ensure that files are closed properly, even if an error occurs during file operations. Here, the finally block ensures the file is closed even if an error occurs.
+```bash
+try:
+    file = open("myfile.txt", "r")
+    content = file.read()
+    print(content)
+except FileNotFoundError as e:
+    print("Error:", e)
+finally:
+    file.close()
+
+Output:
+Hello, World!
+
+Explanation:
+1. try block contains code that may raise an error.
+2. except block handles specific errors like missing files.
+3. finally block ensures the file is always closed, even if an error occurs.
+```
+
+<b>`File Modes in Python :`</b> When working with files in Python, the file mode tells Python what kind of operations (read, write, etc.) you want to perform on the file. You specify the mode as the second argument to the open() function.
+
+<b>`Different File Mode in Python`</b>
+| Mode  | Description                                                                                          |
+| ----- | ---------------------------------------------------------------------------------------------------- |
+| `r`   | Read-only mode. Raises an I/O error if the file does not exist.                                      |
+| `r+`  | Read and write mode. Raises an I/O error if the file does not exist.                                 |
+| `w`   | Write-only mode. Overwrites the file if it exists, otherwise creates a new file.                     |
+| `w+`  | Read and write mode. Overwrites the file if it exists, otherwise creates a new file.                 |
+| `a`   | Append-only mode. Adds data at the end of the file. Creates the file if it does not exist.           |
+| `a+`  | Read and append mode. File pointer is at the end of the file. Creates the file if it does not exist. |
+| `rb`  | Read-only mode in binary format. File must exist.                                                    |
+| `rb+` | Read and write mode in binary format. File must exist.                                               |
+| `wb`  | Write-only mode in binary format. Overwrites the file or creates a new one.                          |
+| `wb+` | Read and write mode in binary format. Overwrites the file or creates a new one.                      |
+| `ab`  | Append-only mode in binary format. Creates the file if it does not exist.                            |
+| `ab+` | Read and append mode in binary format. Creates the file if it                                        |
+
+<b>`Common Modes :`</b>
+
+`1. Read Mode ('r') :` This mode allows you to open a file for reading only. If the file does not exist, it will raise a FileNotFoundError.
+```bash
+with open('example.txt', 'r') as file:
+    content = file.read()
+```
+
+`2. Write Mode ('w') :` Opens the file for writing only. If the file exists, its content is deleted. If not, a new file is created.
+```bash
+with open('example.txt', 'w') as file:
+    file.write('Hello, world!')
+```
+
+`3. Append Mode ('a') :` Opens the file to add content at the end without deleting existing data. If the file doesn’t exist, it creates a new one.
+```bash
+with open('example.txt', 'a') as file:
+    file.write('\nThis is a new line.')
+```
+
+`4. Binary Mode ('b') :` Used for non-text files like images or audio. Always combined with 'r', 'w', or 'a
+```bash
+Example: In this example, a file named 'image.png' is opened in binary read mode ('rb'). The binary data is read from the file using the 'read()' method and stored in the variable 'data'.
+
+with open('image.png', 'rb') as file:
+    data = file.read()
+    # Process the binary data
+```
+
+`5. Read and Write Mode ('r+') :` Opens the file for both reading and writing. Starts at the beginning of the file. Raises FileNotFoundError if the file doesn’t exist.
+```bash
+with open('example.txt', 'r+') as file:
+    content = file.read()
+    file.write('\nThis is a new line.')
+
+Output: If the initial contents of "example.txt" were:
+
+Hello, World!
+This is a new line
+
+After running the code, the new content of the file would be:
+
+This is a new line
+Hello, World!
+This is a new line
+```
+
+`6. Write and Read Mode ('w+') :` This mode allows you to open a file for both reading and writing. If the file already exists, it will truncate the file to zero length. If the file does not exist, it will create a new file.
+```bash
+with open('example.txt', 'w+') as file:
+    file.write('Hello, world!')
+    file.seek(0)
+    content = file.read()
+
+Output:
+Hello, world!
+```
