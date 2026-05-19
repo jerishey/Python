@@ -3621,3 +3621,331 @@ The Four Pillars of Object-Oriented Programming (OOP) form the foundation for de
 `3. Encapsulation :` Encapsulation is the bundling of data (attributes) and methods (functions) within a class, restricting access to some components to control interactions. A class is an example of encapsulation as it encapsulates all the data that is member functions, variables, etc.
 
 `4. Data Abstraction :` Abstraction hides the internal implementation details while exposing only the necessary functionality. It helps focus on "what to do" rather than "how to do it."
+
+## Python Exception Handling
+Python Exception Handling allows a program to gracefully handle unexpected events (like invalid input or missing files) without crashing. Instead of terminating abruptly, Python lets you detect the problem, respond to it, and continue execution when possible.
+
+### `Features of Exception Handling`
+```bash
+1. Prevents Program Crashes : Exception handling stops the program from terminating unexpectedly when an error occurs.
+
+2. Maintains Normal Program Flow : It allows the remaining part of the program to execute even after an error is handled.
+
+3. Separates Error-Handling Code : Error-handling code is written separately using `try`, `except`, `else`, and `finally` blocks, making the program cleaner and easier to understand.
+
+4. Handles Different Types of Errors : Python supports handling multiple exceptions such as `TypeError`, `ValueError`, `IndexError`, and more.
+
+5. Improves Debugging : It helps programmers identify the cause of errors and fix them more easily.
+
+6. Supports Cleanup Operations : The `finally` block is used to execute important cleanup tasks like closing files or database connections.
+
+7. Allows Custom Exceptions : Programmers can create user-defined exceptions for specific application requirements.
+
+8. Increases Program Reliability : Proper exception handling makes programs more stable, secure, and user-friendly.
+```
+
+<b>`Syntax:`</b>
+```bash
+try:
+      # Code 
+except SomeException:
+      # Code 
+else:
+     # Code 
+finally:
+    # Code 
+
+Parameter:
+1. try: Runs the risky code that might cause an error.
+2. except: Catches and handles the error if one occurs.
+3. else: Executes only if no exception occurs in try.
+4. finally: Runs regardless of what happens useful for cleanup tasks like closing files.
+```
+
+<b>`Example:`</b>
+```bash
+try:
+    n = 0
+    res = 100 / n
+    
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+    
+except ValueError:
+    print("Enter a valid number!")
+    
+else:
+    print("Result is", res)
+    
+finally:
+    print("Execution complete.")
+
+Output:
+You can't divide by zero!
+Execution complete.
+
+Explanation: try block attempts division, except blocks catch specific errors, else block executes only if no errors occur, while finally block always runs, signaling end of execution.
+```
+
+`Difference Between Errors and Exceptions :` Errors and exceptions are both issues in a program, but they differ in severity and handling.
+```bash
+1. Error: Issues in the program logic such as SyntaxError, etc. It occurs at compile time.
+2. Exception: Problems that occur at runtime and can be managed using exception handling (e.g., invalid input, missing files).
+```
+<b>`Example:`</b>
+```bash
+# Syntax Error (Error)
+print("Hello world"  # Missing closing parenthesis
+
+# ZeroDivisionError (Exception)
+n = 10
+res = n / 0
+
+Explanation: A syntax error stops the code from running at all, while an exception like ZeroDivisionError occurs during execution and can be caught with exception handling.
+```
+
+### `Python Built-in Exceptions`
+Python provides a set of built-in exceptions, each designed to signal a specific type of error and helps to debug more effectively. These built-in exceptions can be viewed using the locals() built-in functions as follows :
+```bash
+>>> locals()['__builtins__']
+
+- This returns a dictionary of built-in exceptions, functions and attributes.
+```
+
+`1. BaseException :` This class is the root of Python's exception hierarchy. All other exceptions directly or indirectly inherit from it. While it is rarely used directly in code, it is important because it forms the foundation of Python’s error-handling system.
+```bash
+try:
+    raise BaseException("This is a BaseException")
+except BaseException as e:
+    print(e)
+
+Output:
+This is a BaseException
+
+Explanation: Here, we forcefully raise a BaseException. Since we catch it in the except block, message is printed instead of the program crashing.
+```
+
+`2. Exception :` Exception class is the base for all non-exit exceptions. You will often catch Exception in general error-handling code when you are not targeting a specific error type.
+```bash
+try:
+    raise Exception("This is a generic exception")
+except Exception as e:
+    print(e)
+
+Output:
+This is a generic exception
+
+Explanation: We manually raise an Exception with a message. The error is caught and message is displayed instead of halting the program.
+```
+
+`3. ArithmeticError :` ArithmeticError class is the base for all errors related to mathematical operations. You don’t usually raise it directly, but it provides a way to catch all math-related errors in one block.
+```bash
+try:
+    raise ArithmeticError("Arithmetic error occurred")
+except ArithmeticError as e:
+    print(e)
+
+Output:
+Arithmetic error occurred
+
+Explanation: We raise an ArithmeticError with a custom message. The program catches it and prints the error message, preventing a crash.
+```
+
+`4. ZeroDivisionError :` ZeroDivisionError occurs when you attempt to divide a number by zero. Since division by zero is undefined in mathematics, Python raises this exception to signal the error.
+```bash
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    print(e)
+
+Output:
+division by zero
+
+Explanation: operation 10/0 is invalid. Python raises a ZeroDivisionError, which is then caught in the except block. Instead of crashing, program prints the error message.
+```
+
+`5. OverflowError :` OverflowError occurs when the result of a numerical operation is too large for Python to represent. While it handles large integers well, certain floating-point operations (like very large exponentials) can still cause this error.
+```bash
+import math
+try:
+    result = math.exp(1000)  # Exponential function with a large argument
+except OverflowError as e:
+    print(e)
+
+Output:
+math range error
+
+Explanation: exponential function with input 1000 produces a number too large to handle. Python raises an OverflowError, which is caught and displayed as an error message.
+```
+
+`6. NameError :` NameError occurs when you use a variable or function name that has not been defined.
+```bash
+try:
+    print(var)
+except NameError as e:
+    print(e)
+
+Output:
+name 'var' is not defined
+
+Explanation: Since var was never defined in the code, Python raises a NameError.
+```
+
+`7. KeyError :` KeyError occurs when you try to access a dictionary key that doesn’t exist.
+```bash
+d = {"key1": "value1"}
+
+try:
+    val = d["key2"]
+except KeyError as e:
+    print(e)
+
+Output:
+'key2'
+
+Explanation: dictionary does not contain "key2". Attempting to retrieve it raises a KeyError, which is caught and printed.
+```
+
+`8. IndexError :` IndexError happens when you try to access a list (or any sequence) element with an index that is out of range.
+```bash
+my_list = [1, 2, 3]
+
+try:
+    element = my_list[5]
+except IndexError as e:
+    print(e)
+
+Output:
+list index out of range
+
+Explanation: list has only indices 0, 1, 2. When we try to access index 5, Python raises an IndexError.
+```
+
+### `Catching Exceptions`
+We can handle errors more efficiently by specifying the types of exceptions we expect. This can make code both safer and easier to debug.
+
+`1. Catching Specific Exceptions :` Catching specific exceptions makes code to respond to different exception types differently. It precisely makes your code safer and easier to debug. It avoids masking bugs by only reacting to the exact problems you expect.
+```bash
+try:
+    # This will cause ValueError
+    x = int("str") 
+    inv = 1 / x   # Inverse calculation
+    
+except ValueError:
+    print("Not Valid!")
+    
+except ZeroDivisionError:
+    print("Zero has no inverse!")
+
+Output:
+Not Valid!
+
+Explanation: A ValueError occurs because "str" cannot be converted to an integer. If conversion had succeeded but x were 0, a ZeroDivisionError would have been caught instead.
+```
+
+`2. Catching Multiple Exceptions :` We can catch multiple exceptions in a single block if we need to handle them in the same way or we can separate them if different types of exceptions require different handling.
+```bash
+a = ["10", "twenty", 30]
+try:
+    # 'twenty' cannot be converted to int
+    total = int(a[0]) + int(a[1])  
+    
+except (ValueError, TypeError) as e:
+    print("Error", e)
+    
+except IndexError:
+    print("Index out of range.")
+
+Output:
+Error invalid literal for int() with base 10: 'twenty'
+
+Explanation: The ValueError is raised when trying to convert "twenty" to an integer. A TypeError could occur if incompatible types were used, while IndexError would trigger if the list index was out of range.
+```
+
+`3. Catch-All Handlers and Their Risks :` Catch-all handler is used to call to catch any exception (similar to else statement). Use only except keyword to define it:
+```bash
+try:
+    # Risky operation: dividing string by number
+    res = "100" / 20 
+    
+except ArithmeticError:
+    print("Arithmetic problem.")
+    
+except:
+    print("Something went wrong!")
+
+Output:
+Something went wrong!
+
+Explanation: A TypeError occurs because you can’t divide a string by a number. The bare except catches it, but this can make debugging harder since the actual error type is hidden. Use bare except only as a net.
+```
+
+### `Raise an Exception`
+We raise an exception in Python using the raise keyword followed by an instance of the exception class that we want to trigger. We can choose from built-in exceptions or define our own custom exceptions by inheriting from Python's built-in Exception class.
+
+<b>`Syntax:`</b>
+```bash
+raise ExceptionType("Error message")
+```
+<b>`Example:`</b>
+```bash
+def set(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative.")
+    print(f"Age set to {age}")
+
+try:
+    set(-5)
+except ValueError as e:
+    print(e)
+
+Output:
+Age cannot be negative.
+
+Explanation: The function checks if age is invalid. If it is, it raises a ValueError. This prevents invalid states from entering the program.
+```
+
+### `User-defined Exceptions`
+User-defined exceptions are created by defining a new class that inherits from Python's built-in Exception class or one of its subclasses. By doing this, we can create custom error messages and handle specific errors in a way that makes sense for our application
+
+`Steps to Create and Use User-Defined Exceptions`
+```bash
+1. Define a New Exception Class: Create a new class that inherits from Exception or any of its subclasses.
+2. Raise the Exception: Use the raise statement to raise the user-defined exception when a specific condition occurs.
+2. Handle the Exception: Use try-except blocks to handle the user-defined exception.
+```
+
+<b>`Example:`</b>
+```bash
+# Step 1: Define a custom exception class
+class InvalidAgeError(Exception):
+    def __init__(self, age, msg="Age must be between 0 and 120"):
+        self.age = age
+        self.msg = msg
+        super().__init__(self.msg)
+
+    def __str__(self):
+        return f'{self.age} -> {self.msg}'
+
+# Step 2: Use the custom exception in your code
+def set_age(age):
+    if age < 0 or age > 120:
+        raise InvalidAgeError(age)
+    else:
+        print(f"Age set to: {age}")
+
+# Step 3: Handling the custom exception
+try:
+    set_age(150)  # This will raise the custom exception
+except InvalidAgeError as e:
+    print(e)
+
+Output:
+150 -> Age must be between 0 and 120
+
+Explanation:
+1. InvalidAgeError class inherits from Exception. It defines an __init__ method to accept age and message.
+2. The __str__ method returns a readable string representation of the error.
+3. In set_age(), if the age is outside the valid range (0–120), the exception is raised.
+4. The try-except block catches the exception and prints the error message.
+```
