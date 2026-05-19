@@ -2747,3 +2747,343 @@ Output:
 
 Explanation: a gets the first item, c gets the last item and *b collects everything in between into a list.
 ```
+
+## Python Dictionary
+Dictionary is a data structure that stores information in key-value pairs. While keys must be unique and immutable (like strings or numbers), values can be of any data type, whether mutable or immutable. 
+<br>
+This makes dictionaries ideal for accessing data by a specific name rather than a numeric position like in list.
+
+### `Features of Dictionary`
+```bash
+1. Stores Data in Key–Value Pairs : A dictionary stores information in the form of `key : value`, making data easy to organize and access.
+
+2. Mutable (Changeable) : Dictionaries can be modified after creation, allowing users to add, update, or remove items whenever needed.
+
+3. Keys are Unique : Each key in a dictionary must be unique. If the same key is used again, the old value gets replaced by the new one.
+
+4. Values Can Be Any Data Type : Dictionary values can store integers, strings, lists, tuples, or even another dictionary.
+
+5. Fast Access to Data : Dictionaries provide quick and efficient access to values using their keys instead of searching through the entire collection.
+
+6. Dynamic Size : The size of a dictionary can grow or shrink during program execution because items can be added or deleted anytime.
+```
+
+### `Creating a Dictionary`
+A dictionary is created by writing key-value pairs inside { }, where each key is connected to a value using colon (:). 
+```bash
+a = {"x": 1, "y": 2}
+print(a)
+
+Output:
+{'x': 1, 'y': 2}
+```
+
+`Using dict() :` dict() function in Python is a built-in constructor used to create dictionaries.
+```bash
+# passing keyword arguments
+d = dict(a=1, b=2, c=3, d=4)
+
+print(d)
+
+Output:
+{'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+- Explanation: dict() allows direct key-value pair assignment using the key=value syntax, where each key must be a valid Python identifier i.e., a string without quotes that follows variable naming rules.
+```
+
+### `Accessing Dictionary Items`
+A value in a dictionary is accessed by using its key. This can be done either with square brackets [ ].
+```bash
+d = {"name": "Kat", "age": 21}
+print(d["name"])     # Access using key
+
+Output:
+Kat
+
+- Accessing a missing key with [ ] raises a KeyError.
+```
+
+`Using get() :` The dict.get() method in Python returns the value associated with a given key. If the key is not present, it returns None by default or a specified default value if provided. It allows safe access to dictionary keys without raising a KeyError.
+```bash
+Syntax: dict_name.get(key, default_value)
+
+Parameters:
+- key: The key whose value needs to be retrieved.
+-default_value (optional): Value returned if the key is not found. Default is None.
+
+Return Value:
+- Returns the value of the specified key.
+- Returns default_value (or None) if the key does not exist.
+
+Example:
+d = {'coding': 'good', 'thinking': 'better'}
+print(d.get('coding'))
+
+Output:
+good
+
+Explanation: d.get('coding') returns the value linked to 'coding'. Since the key exists, its value is returned.
+```
+### `Adding and Updating Dictionary Items`
+New items are added to a dictionary using the assignment operator (=) by giving a new key a value. If an existing key is used with the assignment operator, its value is updated with the new one.
+```bash
+d = {"name": "Sam"}
+
+d["age"] = 21        # Adding a new key-value pair
+d["name"] = "Alex"   # Updating an existing value
+print(d)
+
+Output:
+{'name': 'Alex', 'age': 21}
+```
+
+### `Removing Dictionary Items`
+Dictionary items can be removed using built-in deletion methods that work on keys:
+
+`1. del :` removes an item using its key
+```bash
+d = {"a": 1, "b": 2}
+del d["a"]
+print(d)
+
+Output:
+{'b': 2}
+```
+
+`2. pop() :` removes the item with the given key and returns its value
+```bash
+d = {"a": 1, "b": 2}
+
+val = d.pop("a")
+print(val)
+print(d)
+
+Output:
+1
+{'b': 2}
+```
+
+`3. popitem() :` removes and returns the last inserted key-value pair
+```bash
+d = {"a": 1, "b": 2}
+print(d.popitem())
+
+Output:
+('b', 2)
+```
+
+`4. clear() :` removes all items from the dictionary
+```bash
+d = {"a": 1, "b": 2}
+d.clear()
+print(d)
+
+Output:
+{}
+```
+
+### `Iterating Through a Dictionary`
+A dictionary can be traversed using a for loop to access its keys, values or both key-value pairs by using the built-in methods keys(), values() and items().
+
+`1. Iterate keys :` Returns all keys from the dictionary.
+```bash
+Syntax: dict_name.keys()
+
+1. Parameters: No parameter required.
+2. Return Type: Returns a dynamic view object containing dictionary keys.
+
+Example:
+d = {"a": 1, "b": 2}
+for key in d:
+    print(key)
+
+Output:
+a
+b
+```
+
+`2. Iterate values :` Returns all values from the dictionary.
+```bash
+Syntax: dict_name.values()
+
+1. Parameters: No parameters are required.
+2. Returns: Returns a dynamic view object containing all dictionary values.
+
+Example:
+d = {"a": 1, "b": 2}
+for value in d.values():
+    print(value)
+
+Output:
+1
+2
+```
+`3. Iterate key-value pairs :` Returns all key-value pairs as tuples.
+```bash
+Syntax: dict.items()
+
+1. Parameters: No parameters are required.
+2. Return value: Returns a dict_items view object containing (key, value) tuples.
+
+Example:
+d = {"a": 1, "b": 2}
+for key, value in d.items():
+    print(key, value)
+
+Output:
+a 1
+b 2
+```
+
+### `Nested Dictionary`
+A nested dictionary is a dictionary that contains another dictionary as a value. It helps organize complex or grouped data, like student details or product info in a clean and structured way.
+
+`1. Creating a Nested Dictionary :` Creating a Nested Dictionary means placing dictionaries as values inside an outer dictionary using curly braces {}. 
+```bash
+students = {}
+
+students['student1'] = {'name': 'Drake', 'age': 20, 'grade': 'A'}
+students['student2'] = {'name': 'Travis', 'age': 22, 'grade': 'B'}
+students['student3'] = {'name': 'Charlie', 'age': 21, 'grade': 'A+'}
+
+print("Student Details:")
+print(students)
+
+Output:
+Student Details:
+{'student1': {'name': 'Drake', 'age': 20, 'grade': 'A'}, 'student2': {'name': 'Travis', 'age': 22, 'grade': 'B'}, 'student3': {'name': 'Charlie', 'age': 21, 'grade': 'A+'}}
+```
+
+`2. Adding Elements to a Nested Dictionary :` Adding elements to a nested dictionary means inserting new key-value pairs into inner dictionaries or adding new inner dictionaries using normal assignment.
+```bash
+person = {'employee1': {'name': 'Nitish', 'age': 25}}
+
+# Adding a new key-value pair to existing inner dictionary
+person['employee1']['department'] = 'HR'
+
+# Adding a new inner dictionary
+person['employee2'] = {'name': 'Shivam', 'age': 30, 'department': 'IT'}
+
+print("Updated Nested Dictionary:")
+print(person)
+
+Output:
+Updated Nested Dictionary:
+{'employee1': {'name': 'Nitish', 'age': 25, 'department': 'HR'}, 'employee2': {'name': 'Shivam', 'age': 30, 'department': 'IT'}}
+```
+
+`3. Accessing Elements in a Nested Dictionary :` Accessing elements in a nested dictionary means using outer and inner keys to retrieve specific values from structured data.
+```bash
+student = {'student1': {'name': 'Taniya', 'age': 20, 'grade': 'A'}}
+
+# Accessing elements
+print("Name:", student['student1']['name'])
+print("Grade:", student['student1']['grade'])
+
+Output:
+Name: Taniya
+Grade: A
+```
+
+`4. Deleting from a Nested Dictionary :` Deleting from a Nested Dictionary means removing items from a nested dictionary using del or .pop(), either from inner dictionary or whole entry.
+```bash
+employee = {'emp1': {'name': 'John', 'age': 28, 'dept': 'Sales'},
+            'emp2': {'name': 'Sara', 'age': 32, 'dept': 'HR'} }
+
+# Deleting a key from inner dictionary
+del employee['emp1']['dept']
+
+# Deleting an entire inner dictionary
+del employee['emp2']
+
+print("Updated Nested Dictionary:")
+print(employee)
+
+Output:
+Updated Nested Dictionary:
+{'emp1': {'name': 'John', 'age': 28}}
+```
+
+### `Dictionary Comprehension`
+Dictionary comprehension is used to create a dictionary in a short and clear way. It allows keys and values to be generated from a loop in one line. This helps in building dictionaries directly without writing multiple statements.
+```bash
+Syntax : {key: value for (key, value) in iterable if condition}
+
+Parameter:
+1. key: The item to use as the dictionary key.
+2. value: The item to use as the dictionary value.
+3. iterable: Any sequence or collection to loop through.
+4. condition (optional): Lets you include only certain items
+
+Example:
+sq = {x: x**2 for x in range(1, 6)}
+print(sq)
+
+Output:
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+`Creating a Dictionary from Two Lists :` This method creates a dictionary by pairing each item from one list with the matching item from another list using zip().
+```bash
+keys = ['a','b','c','d','e']
+values = [1, 2, 3, 4, 5]  
+
+d = {k:v for (k,v) in zip(keys, values)}  
+print (d)
+
+Output:
+{'a': 1, 'c': 3, 'b': 2, 'e': 5, 'd': 4}
+```
+
+`Using fromkeys() Method :` The fromkeys() method creates a dictionary by taking a group of keys and assigning the same value to all of them.
+```bash
+Syntax : fromkeys(seq, val)
+
+Parameters :
+1. seq : The sequence to be transformed into a dictionary.
+2. val : Initial values that need to be assigned to the generated keys. Defaults to None.
+
+Returns : A dictionary with keys mapped to None if no value is provided, else to the value provided in the field. 
+
+Example:
+d = dict.fromkeys(range(5), True)
+print(d)
+
+Output:
+{0: True, 1: True, 2: True, 3: True, 4: True}
+```
+
+`Dictionary Comprehension with Conditional Statements :` We can include conditions in a dictionary comprehension to filter items or apply logic only to specific values. This allows us to create dictionaries more selectively.
+```bash
+d = {x: x**3 for x in range(10) if x**3 % 4 == 0}
+print(d)
+
+Output:
+{0: 0, 8: 512, 2: 8, 4: 64, 6: 216}
+```
+
+`Nested Dictionary Comprehension :` We can also create dictionaries within dictionaries using nested dictionary comprehensions. This is useful when each key maps to another dictionary of related values.
+```bash
+Syntax:
+{
+    key: {subkey: value for subkey in iterable}
+    for key in iterable
+}
+
+Example:
+table = {
+    x: {y: x * y for y in range(1, 6)}
+    for x in range(1, 6)
+}
+
+print(table)
+
+Output:
+{
+  1: {1: 1, 2: 2, 3: 3, 4: 4, 5: 5},
+  2: {1: 2, 2: 4, 3: 6, 4: 8, 5: 10},
+  3: {1: 3, 2: 6, 3: 9, 4: 12, 5: 15},
+  4: {1: 4, 2: 8, 3: 12, 4: 16, 5: 20},
+  5: {1: 5, 2: 10, 3: 15, 4: 20, 5: 25}
+}
+```
