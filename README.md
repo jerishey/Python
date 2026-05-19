@@ -3292,3 +3292,332 @@ print(s)
 Output:
 set()
 ```
+## Python Arrays
+Python provides multiple ways to work with linear data structures, which store elements sequentially. Although Python does not have a built-in array type like some other languages, similar functionality can be achieved using:
+
+- Lists
+- Array module
+- NumPy arrays
+
+### `NumPy Arrays`
+NumPy arrays are a part of the NumPy library, which is a tool for numerical computing. Designed for high-performance operations on large datasets and support multi-dimensional arrays and matrices, making them suitable for complex mathematical computations.
+```bash
+1. Multi-dimensional support: Can handle multiple dimensions, making them suitable for matrix operations and advanced mathematical tasks.
+2. Broad broadcasting capabilities: Allow operations between arrays of different shapes and sizes using broadcasting.
+3. Efficient storage and processing: Uses optimized memory and provide faster performance compared to lists for numerical operations.
+```
+<b> `Example:` </b>
+```bash
+import numpy as np
+a = np.array([1, 2, 3, 4])
+
+# Element-wise operations
+print(a * 2)  
+
+# Multi-dimensional array
+res = np.array([[1, 2], [3, 4]])
+print(res * 2)
+
+Output:
+[2 4 6 8]
+[[2 4]
+ [6 8]]
+
+- Use NumPy arrays for complex, multi-dimensional computations. Use Python’s array module for simple, memory-efficient storage of uniform data.
+```
+
+### `Python Arrays`
+Array is a collection of elements stored at contiguous memory locations, used to hold multiple values of the same data type. Unlike Lists, which can store mixed types, arrays are homogeneous and require a typecode during initialization to define the data type.
+```bash
+import array as arr
+a = arr.array('i', [1, 2, 3])
+
+# accessing First Araay
+print(a[0])
+
+# adding element to array
+a.append(5)
+print(a)
+
+Output:
+1
+array('i', [1, 2, 3, 5])
+
+Explanation: parameter 'i' is the typecode, it tells Python to treat the elements as signed integers ([1, 2, 3]) of a specific byte size (usually 2 or 4 bytes).
+```
+
+`Create an Array :` Array can be created by importing an array module. array(data_type, value_list) is used to create array with data type and value list specified in its arguments.
+```bash
+import array as arr
+a = arr.array('i', [1, 2, 3])
+
+for i in range(0, 3):
+    print(a[i], end=" ")
+
+Output:
+1 2 3 
+```
+
+`Adding Elements to an Array :` Elements can be added to an array using insert() to place a value at a specific index, or append() to add a value at the end.
+
+`1. insert() Method : `
+```bash
+Syntax: list_name.insert(index, element)
+
+Parameters:
+1. index: the index at which the element has to be inserted.
+2. element: the element to be inserted in the list.
+3. Return : The insert() method returns None. It only updates the current list.
+
+Example:
+import array as arr
+a = arr.array('i', [1, 2, 3])
+print(*a)
+
+a.insert(1, 4)  # Insert 4 at index 1
+print(*a)
+
+Output:
+1 2 3
+1 4 2 3
+```
+`2. append() Method :`
+```bash
+Syntax:
+list.append(element)
+
+Parameter:
+1. element: The item to be appended to the list. This can be of any data type (integer, string, list, object, etc.). This parameter is mandatory, and omitting it will cause an error.
+2. Return: append() does not return any value. It modifies the original list in place.
+```
+
+`Accessing Array Items :` Array elements are accessed using their index with square brackets [ ]. Each item has a position starting from 0 and the index must be an integer.
+```bash
+import array as arr
+a = arr.array('i', [1, 2, 3, 4, 5, 6])
+
+print(a[0])
+print(a[3])
+
+b = arr.array('d', [2.5, 3.2, 3.3])
+print(b[1])
+print(b[2])
+
+Output:
+1
+4
+3.2
+3.3
+```
+
+`Removing Elements from the Array :` Elements can be removed using remove(), which deletes the first occurrence of a value, or pop(), which removes and returns an element (last by default or a specific index if provided).
+```bash
+import array
+a = array.array('i', [1, 2, 3, 1, 5])
+
+# remove first occurance of 1
+a.remove(1)
+print(a)
+
+# remove item at index 2
+a.pop(2)
+print(a)
+
+Output:
+array('i', [2, 3, 1, 5])
+array('i', [2, 3, 5])
+```
+
+`Slicing of an Array :` Slicing is used to access a specific range of elements from an array using index positions.
+```bash
+1. Elements from beginning to a range use [:Index]
+2. Elements from end use [:-Index]
+3. Elements from specific Index till the end use [Index:]
+4. Elements within a range, use [Start Index:End Index]
+5. Print complete List, use [:].
+6. For Reverse list, use [::-1].
+```
+<b>`Example:`</b>
+```bash
+import array as arr
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+b = arr.array('i', a)
+
+res = b[3:8]
+print(res)
+
+res = b[5:]
+print(res)
+
+res = b[:]
+print(res)
+
+Output:
+array('i', [4, 5, 6, 7, 8])
+array('i', [6, 7, 8, 9, 10])
+array('i', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+```
+
+`Searching Element in an Array :` In order to search an element in the array we use index() method. This function returns the index of the first occurrence of value mentioned in arguments.
+```bash
+import array
+a = array.array('i', [1, 2, 3, 1, 2, 5])
+
+# index of 1st occurrence of 2
+print(a.index(2))
+
+# index of 1st occurrence of 1
+print(a.index(1))
+
+Output:
+1
+0
+```
+
+`Updating Elements in an Array :` In order to update an element in the array we simply reassign a new value to the desired index we want to update.
+```bash
+import array
+a = array.array('i', [1, 2, 3, 1, 2, 5])
+
+# update item at index 2
+a[2] = 6
+print(a)
+
+# update item at index 4
+a[4] = 8
+print(a)
+
+Output:
+array('i', [1, 2, 6, 1, 2, 5])
+array('i', [1, 2, 6, 1, 8, 5])
+```
+
+<b>`Arrays Operations`</b>
+
+`1. Counting Elements in an Array :` We can use count() method to count given item in array.
+```bash
+import array
+a = array.array('i', [1, 2, 3, 4, 2, 5, 2])
+
+count = a.count(2)
+print(count)
+
+Output:
+3
+```
+
+`2. Reversing Elements in an Array :` In order to reverse elements of an array use reverse method.
+```bash
+import array
+a = array.array('i', [1, 2, 3, 4, 5])
+
+a.reverse()
+print(*a)
+
+Output:
+5 4 3 2 1
+```
+
+`3. Extend Element from Array :` extend() function is used to attach an item from iterable to the end of the array. This method is used to add an array of values to the end of a given or existing array.
+```bash
+import array as arr 
+a = arr.array('i', [1, 2, 3,4,5])
+
+a.extend([6,7,8,9,10])
+print(a)
+
+Output:
+array('i', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+```
+
+<b>`Difference Between List and Array in Python :`</b>
+
+| `Basis` | `List` | `Array` |
+|---|---|---|
+| `Data Type Handling` | Can store mixed data types | Stores only one data type |
+| `Memory Usage` | Uses more memory due to flexible storage | Uses less memory because of uniform data type |
+| `Performance` | Slower for numerical operations | Faster for numeric computations |
+| `Flexibility` | Supports easy insertion, deletion and resizing | Less flexible due to fixed type and size constraints |
+| `Arithmetic Operations` | Cannot perform element-wise arithmetic directly | Supports element-wise arithmetic |
+| `Built-in Support` | Available by default in Python | Requires importing the `array` module |
+| `Best Use Case` | General-purpose and mixed-type data | Numeric and scientific data processing |
+| `Data Consistency` | Allows mixed values without restriction | Enforces strict type consistency |
+
+
+## Python OOP Concepts
+Object Oriented Programming empowers developers to build modular, maintainable and scalable applications. OOP is a way of organizing code that uses objects and classes to represent real-world entities and their behavior. In OOP, object has attributes thing that has specific data and can perform certain actions using methods.
+
+### `Features of OOP`
+```bash
+1. Organizes code into classes and objects.
+2. Supports encapsulation to group data and methods together.
+3. Enables inheritance for reusability and hierarchy.
+4. Allows polymorphism for flexible method implementation.
+5. Improves modularity, scalability and maintainability.
+```
+
+`1. Class :` A class is a collection of objects. Classes are blueprints for creating objects. A class defines a set of attributes and methods that the created objects (instances) can have.  
+
+- Classes are created by keyword class.
+- Attributes are the variables that belong to a class.
+- Attributes are always public and can be accessed using the dot (.) operator. Example: Myclass.Myattribute
+
+`Creating a Class`
+```bash
+class Dog:
+    species = "Canine"  # Class attribute
+
+    def __init__(self, name, age):
+        self.name = name  # Instance attribute
+        self.age = age  # Instance attribute
+
+Explanation:
+
+1. class Dog: creates a class named Dog, which acts as a blueprint for dog objects.
+2. species is a class attribute, meaning it is shared by all instances of the class.
+3. __init__() is a constructor method that runs automatically when a new object is created. It is used to initialize object data.
+4. self refers to the current object, allowing each object to store and access its own data.
+5. self.name and self.age are instance attributes, unique to each Dog object created from the class.
+```
+
+`2. Objects :` An Object is an instance of a Class. It represents a specific implementation of the class and holds its own data. An object consists of:
+
+- State: It is represented by the attributes and reflects the properties of an object.
+- Behavior: It is represented by the methods of an object and reflects the response of an object to other objects.
+- Identity: It gives a unique name to an object and enables one object to interact with other objects.
+
+`Creating Object :` Creating an object involves instantiating a class to create a new instance of that class. This process is also referred to as object instantiation.
+```bash
+class Dog:
+    species = "Canine"  # Class attribute
+
+    def __init__(self, name, age):
+        self.name = name  # Instance attribute
+        self.age = age  # Instance attribute
+
+# Creating an object of the Dog class
+dog1 = Dog("Buddy", 3)
+
+print(dog1.name) 
+print(dog1.species)
+
+Output:
+Buddy
+Canine
+
+Explanation:
+1. dog1 = Dog("Buddy", 3): Creates an object of the Dog class with name as "Buddy" and age as 3.
+2. dog1.name: Accesses the instance attribute name of the dog1 object.
+3. dog1.species: Accesses the class attribute species of the dog1 object.
+```
+
+### `Four Pillars of OOP`
+The Four Pillars of Object-Oriented Programming (OOP) form the foundation for designing structured, reusable, and maintainable software.
+
+`1. Inheritance :` Inheritance allows a class (child class) to acquire properties and methods of another class (parent class). It supports hierarchical classification and promotes code reuse.
+
+`2. Polymorphism :` Polymorphism means "same operation, different behavior." It allows functions or methods with the same name to work differently depending on the type of object they are acting upon.
+
+`3. Encapsulation :` Encapsulation is the bundling of data (attributes) and methods (functions) within a class, restricting access to some components to control interactions. A class is an example of encapsulation as it encapsulates all the data that is member functions, variables, etc.
+
+`4. Data Abstraction :` Abstraction hides the internal implementation details while exposing only the necessary functionality. It helps focus on "what to do" rather than "how to do it."
