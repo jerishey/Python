@@ -3087,3 +3087,208 @@ Output:
   5: {1: 5, 2: 10, 3: 15, 4: 20, 5: 25}
 }
 ```
+
+## Python Sets
+A Set is used to store a collection of items with the following properties.
+```bash
+1. No duplicate elements. If try to insert the same item again, it overwrites previous one.
+2. An unordered collection. When we access all items, they are accessed without any specific order and we cannot access items using indexes as we do in lists.
+3. Internally use hashing that makes set efficient for search, insert and delete operations. It gives a major advantage over a list for problems with these operations.
+4. Mutable, meaning we can add or remove elements after their creation, the individual elements within the set cannot be changed directly.
+```
+<b>`Example:` </b>
+```bash
+s = {10, 50, 20}
+print(s)
+print(type(s))
+
+Output:
+{10, 50, 20}
+<class 'set'>
+
+Explanatio: There is no specific order for set elements to be printed
+```
+
+### `Type Casting`
+set() method is used to convert other data types, such as lists or tuples, into sets.
+```bash
+# typecasting list to set
+s = set(["a", "b", "c"])
+print(s)
+
+# Adding element to the set
+s.add("d")
+print(s)
+
+Output:
+{'c', 'b', 'a'}
+{'d', 'c', 'b', 'a'}
+```
+
+### `Check unique and Immutable`
+Sets cannot have duplicate values. While you cannot modify the individual elements directly, you can still add or remove elements from the set.
+```bash
+# a set cannot have duplicate values
+s = {"Python", "for", "Python"}
+print(s)
+
+# values of a set cannot be changed
+s[1] = "Hello"
+print(s)
+
+Output:
+{'Python', 'for'}
+TypeError: 'set' object does not support item assignment
+
+Explanation:
+s = {"Python", "for", "Python"} duplicates are removed, only unique values remain.
+s[1] = "Hello" Error, set elements cannot be changed directly. Only add() or remove() can modify a set.
+```
+
+### `Heterogeneous Element`
+Sets can store heterogeneous elements in it, i.e., a set can store a mixture of string, integer, boolean, etc datatypes.
+```bash
+s = {"AI", "for", 10, 52.7, True}
+print(s)
+
+Output:
+{True, 52.7, 'AI', 10, 'for'}
+```
+
+### `Frozen Sets`
+Frozenset is an immutable version of a set. Its elements cannot be changed after creation, but you can perform operations like union, intersection and difference. Use frozenset() to create one.
+```bash
+# Normal set (mutable)
+s = set(["a", "b", "c"])
+print("Normal Set:", s)
+
+# Frozen set (immutable)
+fs = frozenset(["e", "f", "g"])
+print("Frozen Set:", fs)
+
+Output:
+('Normal Set:', set(['a', 'c', 'b']))
+('Frozen Set:', frozenset(['e', 'g', 'f']))
+
+- Frozensets are immutable, so methods like add() or remove() cannot be used. They are also hashable, which allows them to be used as dictionary keys.
+```
+
+### `Methods for Sets`
+
+`1. Adding elements to Sets :` add() function is used to insert new elements into a set. It automatically ignores duplicates.
+```bash
+s = {"a", "b", "c"}
+s.add("d")
+print(s)
+
+Output:
+{'c', 'd', 'a', 'b'}
+```
+
+`2. Union of Sets :` union() function combines two sets and returns a new set with all unique elements.
+```bash
+Syntax:
+set1 | set2  # Using the '|' operator
+set1.union(set2)  # Using the union() method
+
+Example:
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+# Using '|' operator
+res1 = A | B
+print("using '|':", res1)
+
+# Using union() method
+res2 = A.union(B)
+print("using union():",res2)
+
+Output:
+using '|': {1, 2, 3, 4, 5, 6}
+using union(): {1, 2, 3, 4, 5, 6}
+
+Explanation: | operator and union() method both return a new set containing all unique elements from both sets.
+```
+
+`3. Intersection of Sets :` intersection() function returns a new set containing elements that are common to both sets.
+```bash
+Syntax:
+set1 & set2  # Using the '&' operator
+set1.intersection(set2)  # Using the intersection() method
+
+Example:
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+# Using '&' operator
+res1 = A & B
+print("using '&':",res1)
+
+# Using intersection() method
+res2 = A.intersection(B)
+print("using intersection():",res2)
+
+Output:
+using '&': {3, 4}
+using intersection(): {3, 4}
+```
+
+`4. Difference of Sets :` difference() function returns a set containing elements that are in the first set but not in the second.
+```bash
+Syntax:
+set1 - set2  # Using the '-' operator
+set1.difference(set2)  # Using the difference() method
+
+Example:
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+# Using '-' operator
+res1 = A - B
+print("using '-':", res1)
+
+# Using difference() method
+res2 = A.difference(B)
+print("using difference():", res2)
+
+Output:
+using '-': {1, 2}
+using difference(): {1, 2}
+
+Explanation: - operator and difference() method return a new set containing elements of A that are not in B.
+```
+
+`5. Symmetric Difference of sets :` The symmetric difference of two sets includes elements that are in either set but not in both.
+```bash
+Syntax:
+set1 ^ set2  # Using the '^' operator
+set1.symmetric_difference(set2)  # Using the symmetric_difference() method
+
+Example:
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+# Using '^' operator
+res1 = A ^ B
+print("using '^':", res1)
+
+# Using symmetric_difference() method
+res2 = A.symmetric_difference(B)
+print("using symmetric_difference():", res2)
+
+Output:
+using '^': {1, 2, 5, 6}
+using symmetric_difference(): {1, 2, 5, 6}
+
+Explanation: ^ operator and symmetric_difference() method return a new set containing elements that are in either A or B but not in both.
+```
+
+`6. Clearing a Set :` clear() function removes all elements from a set, leaving it empty.
+```bash
+s = {1, 2, 3}
+s.clear()
+print(s)
+
+Output:
+set()
+```
